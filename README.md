@@ -32,6 +32,7 @@
 -   [DOM Manipulation](#dom-manipulation)
 -   [Interview Questions](#interview-questions)
 -   [Miscellaneous](#miscellaneous)
+-   [How to generate a random number in a given range](#How-to-generate-a-random-number-in-a-given-range)
 
 ## Value vs. Reference Variable Assignment
 
