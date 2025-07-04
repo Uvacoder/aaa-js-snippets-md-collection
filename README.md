@@ -1,1615 +1,1085 @@
-<div align="center">
-  <img alt="JavaScript Tips & Tidbits" src="https://i.imgur.com/K7MVMOn.png" />
-</div>
-<p>&nbsp;</p>
-<p align="center">
-  A continuously-evolving compendium of javascript tips based on common areas of confusion or misunderstanding.
-</p>
-# JavaScript-snippets
-<img src="Logo.png" alt="JS snippets logo">
----
-
-
----
-
-
-## Contents
-
--   [Value vs. Reference Variable Assignment](#value-vs-reference-variable-assignment)
--   [Closures](#closures)
--   [Destructuring](#destructuring)
--   [Spread Syntax](#spread-syntax)
--   [Rest Syntax](#rest-syntax)
--   [Array Methods](#array-methods)
--   [Generators](#generators)
--   [Identity Operator (===) vs. Equality Operator (==)](#identity-operator--vs-equality-operator)
--   [Object Comparison](#object-comparison)
--   [Callback Functions](#callback-functions)
--   [Promises](#promises)
--   [Async Await](#async-await)
--   [DOM Manipulation](#dom-manipulation)
--   [Interview Questions](#interview-questions)
--   [Miscellaneous](#miscellaneous)
--   [How to generate a random number in a given range](#How-to-generate-a-random-number-in-a-given-range)
-
-# JavaScript-snippets
-> Click :star:  if you like the project. Pull Request are highly appreciated. Follow us on [Facebook](https://www.facebook.com/snippetsJS)
-
-### Table of Contents
-| No. | Questions |
-|---- | ---------
-|1  | [Generate a random number in a given range](#How-to-generate-a-random-number-in-a-given-range) |
-|2  | [Find the difference between two arrays](#How-to-find-the-difference-between-two-arrays)|
-|3  | [Convert truthy/falsy to boolean(true/false)](#Convert-truthy-falsy-to-boolean)|
-|4  | [Repeat a string](#Repeat-a-string)|
-|5  | [Check how long an operation takes](#Check-how-long-an-operation-takes)|
-|6  | [Two ways to remove an item in a specific in an array](#Two-ways-to-remove-an-item-in-a-specific-in-an-array)|
-|7  | [Did you know you can flat an array?](#Did-you-know-you-can-flat-an-array)|
-|8  | [Get unique values in an array](#Get-unique-values-in-an-array)|
-|9  | [Copy Text to Clipboard](#Copy-Text-to-Clipboard)|
-|10 | [Nested Destructuring](#Nested-Destructuring)|
-|11 | [URLSearchParams](#URLSearchParams)|
-|12 | [Count elements in an array](#Count-elements-in-an-array)|
-|13 | [Aliases with JavaScript Destructuring](#Aliases-with-JavaScript-Destructuring)|
-|14 | [The Object.is() method determines whether two values are the same value](#the-objectis-method-determines-whether-two-values-are-the-same-value)|
-|15 | [Freeze an object](#Freeze-an-object)|
-|16 | [Printing Object keys and values](#Printing-Object-keys-and-values)|
-|17 | [Capture the right click event](#Capture-the-right-click-event)|
-|18 | [In HTML5, you can tell the browser when to run your JavaScript code](#in-html5-you-can-tell-the-browser-when-to-run-your-javascript-code)|
-|19 | [Nullish coalescing operator](#Nullish-coalescing-operator)|
-|20 | [Optional chaining](#Optional-chaining)|
-|21 | [globalThis](#globalThis)|
-|22 | [The second argument of JSON.stringify lets you cherry-pick 🍒 keys to serialize.](#the-second-argument-of-jsonstringify-lets-you-cherry-pick--keys-to-serialize)|
-|23 | [Fire an event listener only once.](#Fire-an-event-listener-only-once)|
-|24 | [Vanilla JS toggle](#Vanilla-JS-toggle)|
-|25 | [Check if a string is a valid JSON](#Check-if-a-string-is-a-valid-JSON)|
-|26 | [getBoundingClientRect](#getBoundingClientRect)|
-|27 | [Check if a node is in the viewport](#Check-if-a-node-is-in-the-viewport)|
-|28 | [Notify when element size is changed](#Notify-when-element-size-is-changed)|
-|29 | [Detect if Browser Tab is in the view](#Detect-if-Browser-Tab-is-in-the-view)|
-|30 | [Private class methods and fields](#Private-class-methods-and-fields)|
-|31 | [Preventing paste into an input field](#Preventing-paste-into-an-input-field)|
-|32 | [The void operator](#The-void-operator)|
-|33 | [replaceAll](#replaceAll)|
-|34 | [Required Function Params](#Required-Function-Params)|
-|35 | [Get input value as a number](#Get-input-value-as-a-number)|
-|36 | [reduceRight](#reduceRight)|
-|37 | [Abort Fetch](#Abort-Fetch)|
-|38 | [How to change the value of an object which is inside an array](#How-to-change-the-value-of-an-object-which-is-inside-an-array)|
-|39 | [Numeric separators allow us to improve our code readability](#Numeric-separators-allow-us-to-improve-our-code-readability)|
-|40 | [pay attention when using every](#pay-attention-when-using-every)|
-|41 | [How to convert an array of key-value tuples into an object](#How-to-convert-an-array-of-key-value-tuples-into-an-object)|
-|42 | [Native text to speech JS](#Native-text-to-speech-JS)|
-|43 | [toFixed](#toFixed)|
-|44 | [generate randomUUID](#generate-random-uuid)|
-|45 | [structuredClone](#structuredClone)|
-
-
-
-
-## Value vs. Reference Variable Assignment
-
-Understanding how JavaScript assigns to variables is foundational to writing bug-free JavaScript. If you don't understand this, you could easily write code that unintentionally changes values.
-
-When JavaScript assigns one of the seven primitive type (i.e., Boolean, Null, Undefined, String, Number, Symbol, and BigInt.) to a variable, the JavaScript runtime gets to determine whether that primitive is assigned by *reference* or by *value*. It doesn't really matter how it's done because primitives can't be mutated (they're *immutable*). However, when the assigned value is an `Array`, `Function`, or `Object` a reference to the array/function/object in memory is assigned.
-
-Example time! In the following snippet, `var2` is set as equal to `var1`. Since `var1` is a primitive type (`String`), `var2` is set as equal to `var1`'s String value and can be thought of as completely distinct from `var1` at this point. Accordingly, reassigning `var2` has no effect on `var1`.
-
-```javascript
-const var1 = 'My string';
-let var2 = var1;
-
-var2 = 'My new string';
+# GitHub Cheat Sheet [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+A collection of cool hidden and not so hidden features of Git and GitHub. This cheat sheet was inspired by [Zach Holman](https://github.com/holman)'s [Git and GitHub Secrets](http://confreaks.tv/videos/aloharuby2012-git-and-github-secrets) talk at Aloha Ruby Conference 2012 ([slides](https://speakerdeck.com/holman/git-and-github-secrets)) and his [More Git and GitHub Secrets](https://vimeo.com/72955426) talk at WDCNZ 2013 ([slides](https://speakerdeck.com/holman/more-git-and-github-secrets)).
+
+*Shortlink: [`http://git.io/sheet`](http://git.io/sheet)*
+
+*Read this in other languages: [English](README.md), [한국어](README.ko.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md), [正體中文](README.zh-tw.md).*
+
+GitHub Cheat Sheet is sponsored by [Drawpoint: create interactive maps and images for your website with no coding](https://www.drawpoint.io)
+
+## Table of Contents
+  - [GitHub](#github)
+    - [Ignore Whitespace](#ignore-whitespace)
+    - [Adjust Tab Space](#adjust-tab-space)
+    - [Commit History by Author](#commit-history-by-author)
+    - [Cloning a Repository](#cloning-a-repository)
+    - [Branch](#branch)
+      - [Compare all Branches to Another Branch](#compare-all-branches-to-another-branch)
+      - [Comparing Branches](#comparing-branches)
+      - [Compare Branches across Forked Repositories](#compare-branches-across-forked-repositories)
+    - [Gists](#gists)
+    - [Git.io](#gitio)
+    - [Keyboard Shortcuts](#keyboard-shortcuts)
+    - [Line Highlighting in Repositories](#line-highlighting-in-repositories)
+    - [Closing Issues via Commit Messages](#closing-issues-via-commit-messages)
+    - [Cross-Link Issues](#cross-link-issues)
+    - [Locking Conversations](#locking-conversations)
+    - [CI Status on Pull Requests](#ci-status-on-pull-requests)
+    - [Filters](#filters)
+    - [Syntax Highlighting in Markdown Files](#syntax-highlighting-in-markdown-files)
+    - [Emojis](#emojis)
+    - [Images/GIFs](#imagesgifs)
+      - [Embedding Images in GitHub Wiki](#embedding-images-in-github-wiki)
+    - [Quick Quoting](#quick-quoting)
+    - [Pasting Clipboard Image to Comments](#pasting-clipboard-image-to-comments)
+    - [Quick Licensing](#quick-licensing)
+    - [Task Lists](#task-lists)
+      - [Task Lists in Markdown Documents](#task-lists-in-markdown-documents)
+    - [Relative Links](#relative-links)
+    - [Metadata and Plugin Support for GitHub Pages](#metadata-and-plugin-support-for-github-pages)
+    - [Viewing YAML Metadata in your Documents](#viewing-yaml-metadata-in-your-documents)
+    - [Rendering Tabular Data](#rendering-tabular-data)
+    - [Rendering PDF](#rendering-pdf)
+    - [Revert a Pull Request](#revert-a-pull-request)
+    - [Diffs](#diffs)
+      - [Rendered Prose Diffs](#rendered-prose-diffs)
+      - [Diffable Maps](#diffable-maps)
+      - [Expanding Context in Diffs](#expanding-context-in-diffs)
+      - [Diff or Patch of Pull Request](#diff-or-patch-of-pull-request)
+      - [Rendering and diffing images](#rendering-and-diffing-images)
+    - [Hub](#hub)
+    - [Contribution Guidelines](#contribution-guidelines)
+      - [CONTRIBUTING file](#contributing-file)
+      - [ISSUE_TEMPLATE file](#issue_template-file)
+      - [PULL_REQUEST_TEMPLATE file](#pull_request_template-file)
+    - [Octicons](#octicons)
+    - [GitHub Student Developer Pack](#github-student-developer-pack)
+    - [GitHub Resources](#github-resources)
+      - [GitHub Talks](#github-talks)
+    - [SSH keys](#ssh-keys)
+    - [Profile Image](#profile-image)
+    - [Repository Templates](#repository-templates)
+  - [Git](#git)
+    - [Remove All Deleted Files from the Working Tree](#remove-all-deleted-files-from-the-working-tree)
+    - [Previous Branch](#previous-branch)
+    - [Stripspace](#stripspace)
+    - [Checking out Pull Requests](#checking-out-pull-requests)
+    - [Empty Commits](#empty-commits)
+    - [Styled Git Status](#styled-git-status)
+    - [Styled Git Log](#styled-git-log)
+    - [Git Query](#git-query)
+    - [Git Grep](#git-grep)
+    - [Merged Branches](#merged-branches)
+    - [Fixup and Autosquash](#fixup-and-autosquash)
+    - [Web Server for Browsing Local Repositories](#web-server-for-browsing-local-repositories)
+    - [Git Configurations](#git-configurations)
+      - [Aliases](#aliases)
+      - [Auto-Correct](#auto-correct)
+      - [Color](#color)
+    - [Git Resources](#git-resources)
+      - [Git Books](#git-books)
+      - [Git Videos](#git-videos)
+      - [Git Articles](#git-articles)
 
-console.log(var1);
-// 'My string'
-console.log(var2);
-// 'My new string'
-```
-
-Let's compare this with object assignment.
-
-```javascript
-const var1 = { name: 'Jim' };
-const var2 = var1;
-
-var2.name = 'John';
-
-console.log(var1);
-// { name: 'John' }
-console.log(var2);
-// { name: 'John' }
-```
-
-How this is working: 
-- The object `{ name: 'Jim' }` is created in memory
-- The variable `var1` is assigned a *reference* to the created object
-- The variable `var2` is set to equal `var1`... which is a reference to that same object in memory!
-- `var2` is mutated, which really means *the object var2 is referencing is mutated*
-- `var1` is pointing to the same object as `var2`, and therefore we see this mutation when accessing `var1`
-
-One might see how this could cause problems if you expected behavior like primitive assignment! This can get especially ugly if you create a function that unintentionally mutates an object.
-
-For more on variable assignment and primitive/object mutability, see <a href="https://typeofnan.dev/variable-assignment-primitive-object-mutation/" rel="">this article</a>.
-
-## Closures
 
-Closure is an important javascript pattern to give private access to a variable. In this example, `createGreeter` returns an anonymous function that has access to the supplied `greeting`, "Hello." For all future uses, `sayHello` will have access to this greeting!
+## GitHub
+### Ignore Whitespace
+Adding `?w=1` to any diff URL will remove any changes only in whitespace, enabling you to see only the code that has changed.
 
-```javascript
-function createGreeter(greeting) {
-    return function(name) {
-        console.log(greeting + ', ' + name);
-    };
-}
+![Diff without whitespace](https://camo.githubusercontent.com/797184940defadec00393e6559b835358a863eeb/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f776869746573706163652e706e67)
 
-const sayHello = createGreeter('Hello');
+[*Read more about GitHub secrets.*](https://github.com/blog/967-github-secrets)
 
-sayHello('Joe');
-// Hello, Joe
-```
+### Adjust Tab Space
+Adding `?ts=4` to a diff or file URL will display tab characters as 4 spaces wide instead of the default 8. The number after `ts` can be adjusted to suit your preference. This does not work on Gists, or raw file views, but a [Chrome extension](https://chrome.google.com/webstore/detail/tab-size-on-github/ofjbgncegkdemndciafljngjbdpfmbkn) can automate this.
 
-In a more real-world scenario, you could envision an initial function `apiConnect(apiKey)` that returns some methods that would use the API key. In this case, the `apiKey` would just need to be provided once and never again.
+Here is a Go source file before adding `?ts=4`:
 
-```javascript
-function apiConnect(apiKey) {
-    function get(route) {
-        return fetch(`${route}?key=${apiKey}`);
-    }
+![Before, tab space example](http://i.imgur.com/GIT1Fr0.png)
 
-    function post(route, params) {
-        return fetch(route, {
-            method: 'POST',
-            body: JSON.stringify(params),
-            headers: {
-                Authorization: `Bearer ${apiKey}`
-            }
-        });
-    }
+...and this is after adding `?ts=4`:
 
-    return { get, post };
-}
+![After, tab space example](http://i.imgur.com/70FL4H9.png)
 
-const api = apiConnect('my-secret-key');
+### Commit History by Author
+To view all commits on a repo by author add `?author={user}` to the URL.
 
-// No need to include the apiKey anymore
-api.get('http://www.example.com/get-endpoint');
-api.post('http://www.example.com/post-endpoint', { name: 'Joe' });
 ```
-
-## Destructuring
-
-Don't be thrown off by javascript parameter destructuring! It's a common way to cleanly extract properties from objects.
-
-```javascript
-const obj = {
-    name: 'Joe',
-    food: 'cake'
-};
-
-const { name, food } = obj;
-
-console.log(name, food);
-// 'Joe' 'cake'
+https://github.com/rails/rails/commits/master?author=dhh
 ```
 
-If you want to extract properties under a different name, you can specify them using the following format.
+![DHH commit history](http://i.imgur.com/S7AE29b.png)
 
-```javascript
-const obj = {
-    name: 'Joe',
-    food: 'cake'
-};
+[*Read more about the differences between commits views.*](https://help.github.com/articles/differences-between-commit-views/)
 
-const { name: myName, food: myFood } = obj;
+### Cloning a Repository
+When cloning a repository the `.git` can be left off the end.
 
-console.log(myName, myFood);
-// 'Joe' 'cake'
+```bash
+$ git clone https://github.com/tiimgreen/github-cheat-sheet
 ```
-
-In the following example, destructuring is used to cleanly pass the `person` object to the `introduce` function. In other words, destructuring can be (and often is) used directly for extracting parameters passed to a function. If you're familiar with React, you probably have seen this before!
 
-```javascript
-const person = {
-    name: 'Eddie',
-    age: 24
-};
-
-function introduce({ name, age }) {
-    console.log(`I'm ${name} and I'm ${age} years old!`);
-}
-
-introduce(person);
-// "I'm Eddie and I'm 24 years old!"
-```
+[*Read more about the Git `clone` command.*](http://git-scm.com/docs/git-clone)
 
-## Spread Syntax
+### Branch
+#### Compare all Branches to Another Branch
 
-A javascript concept that can throw people off but is relatively simple is the spread operator! In the following case, `Math.max` can't be applied to the `arr` array because it doesn't take an array as an argument, it takes the individual elements as arguments. The spread operator `...` is used to pull the individual elements out the array.
+If you go to the repo's [Branches](https://github.com/tiimgreen/github-cheat-sheet/branches) page, next to the Commits button:
 
-```javascript
-const arr = [4, 6, -1, 3, 10, 4];
-const max = Math.max(...arr);
-console.log(max);
-// 10
 ```
-
-## Rest Syntax
-
-Let's talk about javascript rest syntax. You can use it to put any number of arguments passed to a function into an array!
-
-```javascript
-function myFunc(...args) {
-    console.log(args[0] + args[1]);
-}
-
-myFunc(1, 2, 3, 4);
-// 3
+https://github.com/{user}/{repo}/branches
 ```
-
-## Array Methods
 
-JavaScript array methods can often provide you incredible, elegant ways to perform the data transformation you need. As a contributor to StackOverflow, I frequently see questions regarding how to manipulate an array of objects in one way or another. This tends to be the perfect use case for array methods.
+... you would see a list of all branches which are not merged into the main branch.
 
-I will cover a number of different array methods here, organized by similar methods that sometimes get conflated. This list is in no way comprehensive: I encourage you to review and practice all of them discussed on MDN (my favorite JavaScript reference).
+From here you can access the compare page or delete a branch with a click of a button.
 
-### map, filter, reduce
+![Compare branches not merged into master in rails/rails repo - https://github.com/rails/rails/branches](http://i.imgur.com/0FEe30z.png)
 
-There is some confusion around the javascript array methods `map`, `filter`, `reduce`. These are helpful methods for transforming an array or returning an aggregate value.
+#### Comparing Branches
+To use GitHub to compare branches, change the URL to look like this:
 
--   **map:** return array where each element is transformed as specified by the function
-
-```javascript
-const arr = [1, 2, 3, 4, 5, 6];
-const mapped = arr.map(el => el + 20);
-console.log(mapped);
-// [21, 22, 23, 24, 25, 26]
 ```
-
--   **filter:** return array of elements where the function returns true
-
-```javascript
-const arr = [1, 2, 3, 4, 5, 6];
-const filtered = arr.filter(el => el === 2 || el === 4);
-console.log(filtered);
-// [2, 4]
+https://github.com/{user}/{repo}/compare/{range}
 ```
 
--   **reduce:** accumulate values as specified in function
-
-```javascript
-const arr = [1, 2, 3, 4, 5, 6];
-const reduced = arr.reduce((total, current) => total + current, 0);
-console.log(reduced);
-// 21
-```
+where `{range} = master...4-1-stable`
 
-_Note:_ It is always advised to specify an _initialValue_ or you could receive an error. For example:
+For example:
 
-```javascript
-const arr = [];
-const reduced = arr.reduce((total, current) => total + current);
-console.log(reduced);
-// Uncaught TypeError: Reduce of empty array with no initial value
 ```
-
-_Note:_ If there’s no initialValue, then reduce takes the first element of the array as the initialValue and starts the iteration from the 2nd element
-
-You can also read this [tweet](https://twitter.com/sophiebits/status/1099014182261776384?s=20) by Sophie Alpert (@sophiebits), when it is recommended to use <code>reduce</code>
-
-### find, findIndex, indexOf
-
-The array methods `find`, `findIndex`, and `indexOf` can often be conflated. Use them as follows.
-
--   **find:** return the first instance that matches the specified criteria. Does not progress to find any other matching instances.
-
-```javascript
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const found = arr.find(el => el > 5);
-console.log(found);
-// 6
+https://github.com/rails/rails/compare/master...4-1-stable
 ```
 
-Again, note that while everything after 5 meets the criteria, only the first matching element is returned. This is actually super helpful in situations where you would normally break a `for` loop when you find a match!
+![Rails branch compare example](http://i.imgur.com/tIRCOsK.png)
 
--   **findIndex:** This works almost identically to find, but rather than returning the first matching element it returns the index of the first matching element. Take the following example, which uses names instead of numbers for clarity.
+`{range}` can be changed to things like:
 
-```javascript
-const arr = ['Nick', 'Frank', 'Joe', 'Frank'];
-const foundIndex = arr.findIndex(el => el === 'Frank');
-console.log(foundIndex);
-// 1
 ```
-
--   **indexOf:** Works almost identically to findIndex, but instead of taking a function as an argument it takes a simple value. You can use this when you have simpler logic and don't need to use a function to check whether there is a match.
-
-```javascript
-const arr = ['Nick', 'Frank', 'Joe', 'Frank'];
-const foundIndex = arr.indexOf('Frank');
-console.log(foundIndex);
-// 1
+https://github.com/rails/rails/compare/master@{1.day.ago}...master
+https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
 
-### push, pop, shift, unshift
+*Here, dates are in the format `YYYY-MM-DD`*
 
-There are a lot of great array method to help add or remove elements from arrays in a targeted fashion.
+![Another compare example](http://i.imgur.com/5dtzESz.png)
 
--   **push:** This is a relatively simple method that adds an item to the end of an array. It modifies the array in-place and the function itself returns the length of the new array.
+Branches can also be compared in `diff` and `patch` views:
 
-```javascript
-const arr = [1, 2, 3, 4];
-const pushed = arr.push(5);
-console.log(arr);
-// [1, 2, 3, 4, 5]
-console.log(pushed);
-// 5
 ```
-
--   **pop:** This removes the last item from an array. Again, it modifies the array in place. The function itself returns the item removed from the array.
-
-```javascript
-const arr = [1, 2, 3, 4];
-const popped = arr.pop();
-console.log(arr);
-// [1, 2, 3]
-console.log(popped);
-// 4
+https://github.com/rails/rails/compare/master...4-1-stable.diff
+https://github.com/rails/rails/compare/master...4-1-stable.patch
 ```
-
--   **shift:** This removes the first item from an array. Again, it modifies the array in place. The function itself returns the item removed from the array.
 
-```javascript
-const arr = [1, 2, 3, 4];
-const shifted = arr.shift();
-console.log(arr);
-// [2, 3, 4]
-console.log(shifted);
-// 1
-```
+[*Read more about comparing commits across time.*](https://help.github.com/articles/comparing-commits-across-time/)
 
--   **unshift:** This adds one or more elements to the beginning of an array. Again, it modifies the array in place. Unlike a lot of the other methods, the function itself returns the new length of the array.
+#### Compare Branches across Forked Repositories
+To use GitHub to compare branches across forked repositories, change the URL to look like this:
 
-```javascript
-const arr = [1, 2, 3, 4];
-const unshifted = arr.unshift(5, 6, 7);
-console.log(arr);
-// [5, 6, 7, 1, 2, 3, 4]
-console.log(unshifted);
-// 7
 ```
-
-### splice, slice
-
-These methods either modify or return subsets of arrays.
-
--   **splice:** Change the contents of an array by removing or replacing existing elements and/or adding new elements. This method modifies the array in place.
-
-```javascript
-The following code sample can be read as: at position 1 of the array, remove 0 elements and insert b.
-const arr = ['a', 'c', 'd', 'e'];
-arr.splice(1, 0, 'b');
-console.log(arr);
-// ['a', 'b', 'c', 'd', 'e']
+https://github.com/{user}/{repo}/compare/{foreign-user}:{branch}...{own-branch}
 ```
 
--   **slice:** returns a shallow copy of an array from a specified start position and before a specified end position. If no end position is specified, the rest of the array is returned. Importantly, this method does not modify the array in place but rather returns the desired subset.
+For example:
 
-```javascript
-const arr = ['a', 'b', 'c', 'd', 'e'];
-const sliced = arr.slice(2, 4);
-console.log(sliced);
-// ['c', 'd']
-console.log(arr);
-// ['a', 'b', 'c', 'd', 'e']
 ```
-
-### sort
-
--   **sort:** sorts an array based on the provided function which takes a first element and second element argument. Modifies the array in place. If the function returns negative or 0, the order remains unchanged. If positive, the element order is switched.
-
-```javascript
-const arr = [1, 7, 3, -1, 5, 7, 2];
-const sorter = (firstEl, secondEl) => firstEl - secondEl;
-arr.sort(sorter);
-console.log(arr);
-// [-1, 1, 2, 3, 5, 7, 7]
+https://github.com/rails/rails/compare/byroot:master...master
 ```
-
-Phew, did you catch all of that? Neither did I. In fact, I had to reference the MDN docs a lot while writing this - and that's okay! Just knowing what kind of methods are out there with get you 95% of the way there.
-
-## Generators
 
-Don't fear the `*`. The generator function specifies what `value` is yielded next time `next()` is called. Can either have a finite number of yields, after which `next()` returns an `undefined` value, or an infinite number of values using a loop.
+![Forked branch compare](http://i.imgur.com/Q1W6qcB.png)
 
-```javascript
-function* greeter() {
-    yield 'Hi';
-    yield 'How are you?';
-    yield 'Bye';
-}
+### Gists
+[Gists](https://gist.github.com/) are an easy way to work with small bits of code without creating a fully fledged repository.
 
-const greet = greeter();
+![Gist](http://i.imgur.com/VkKI1LC.png?1)
 
-console.log(greet.next().value);
-// 'Hi'
-console.log(greet.next().value);
-// 'How are you?'
-console.log(greet.next().value);
-// 'Bye'
-console.log(greet.next().value);
-// undefined
-```
-
-And using a generator for infinite values:
+Add `.pibb` to the end of any Gist URL ([like this](https://gist.github.com/tiimgreen/10545817.pibb)) in order to get the *HTML-only* version suitable for embedding in any other site.
 
-```javascript
-function* idCreator() {
-    let i = 0;
-    while (true) yield i++;
-}
+Gists can be treated as a repository so they can be cloned like any other:
 
-const ids = idCreator();
-
-console.log(ids.next().value);
-// 0
-console.log(ids.next().value);
-// 1
-console.log(ids.next().value);
-// 2
-// etc...
+```bash
+$ git clone https://gist.github.com/tiimgreen/10545817
 ```
 
-## Identity Operator (===) vs. Equality Operator (==)
+![Gists](http://i.imgur.com/BcFzabp.png)
 
-Be sure to know the difference between the identify operator (`===`) and equality operator (`==`) in javascript! The `==` operator will do type conversion prior to comparing values whereas the `===` operator will not do any type conversion before comparing.
+This means you also can modify and push updates to Gists:
 
-```javascript
-console.log(0 == '0');
-// true
-console.log(0 === '0');
-// false
+```bash
+$ git commit
+$ git push
+Username for 'https://gist.github.com':
+Password for 'https://tiimgreen@gist.github.com':
 ```
-
-## Object Comparison
-
-A mistake I see javascript newcomers make is directly comparing objects. Variables are pointing to references to the objects in memory, not the objects themselves! One method to actually compare them is converting the objects to JSON strings. This has a drawback though: `JSON.stringify` is not able to stringify a lot of object types (e.g., functions and sets)! A safer way to compare objects is to pull in a library that specializes in deep object comparison (e.g., lodash's isEqual).
 
-The following objects appear equal but they are in fact pointing to different references.
+However, Gists do not support directories. All files need to be added to the repository root.
+[*Read more about creating Gists.*](https://help.github.com/articles/creating-gists/)
 
-```javascript
-const joe1 = { name: 'Joe' };
-const joe2 = { name: 'Joe' };
+### Git.io
+[Git.io](http://git.io) is a simple URL shortener for GitHub.
 
-console.log(joe1 === joe2);
-// false
-```
+![Git.io](http://i.imgur.com/6JUfbcG.png?1)
 
-Conversely, the following evaluates as true because one object is set equal to the other object and are therefore pointing to the same reference (there is only one object in memory).
+You can also use it via pure HTTP using Curl:
 
-```javascript
-const joe1 = { name: 'Joe' };
-const joe2 = joe1;
+```bash
+$ curl -i http://git.io -F "url=https://github.com/..."
+HTTP/1.1 201 Created
+Location: http://git.io/abc123
 
-console.log(joe1 === joe2);
-// true
+$ curl -i http://git.io/abc123
+HTTP/1.1 302 Found
+Location: https://github.com/...
 ```
-
-Make sure to review the Value vs. Reference section above to fully understand the ramifications of setting a variable equal to another variable that's pointing to a reference to an object in memory!
-
-## Callback Functions
 
-Far too many people are intimidated by javascript callback functions! They are simple, take this example. The `console.log` function is being passed as a callback to `myFunc`. It gets executed when `setTimeout` completes. That's all there is to it!
-
-```javascript
-function myFunc(text, callback) {
-    setTimeout(function() {
-        callback(text);
-    }, 2000);
-}
-
-myFunc('Hello world!', console.log);
-// 'Hello world!'
-```
+[*Read more about Git.io.*](https://github.com/blog/985-git-io-github-url-shortener)
 
-## Promises
+### Keyboard Shortcuts
+When on a repository page, keyboard shortcuts allow you to navigate easily.
 
-Once you understand javascript callbacks you'll soon find yourself in nested "callback hell." This is where Promises help! Wrap your async logic in a `Promise` and `resolve` on success or `reject` on fail. Use `then` to handle success and `catch` to handle failure.
+ - Pressing `t` will bring up a file explorer.
+ - Pressing `w` will bring up the branch selector.
+ - Pressing `s` will focus the search field for the current repository. Pressing ↓ to select the “All GitHub” option changes the field to search all of GitHub.
+ - Pressing `l` will edit labels on existing Issues.
+ - Pressing `y` **when looking at a file** (e.g., `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`) will change your URL to one which, in effect, freezes the page you are looking at. If this code changes, you will still be able to see what you saw at that current time.
 
-```javascript
-const myPromise = new Promise(function(res, rej) {
-    setTimeout(function() {
-        if (Math.random() < 0.9) {
-            return res('Hooray!');
-        }
-        return rej('Oh no!');
-    }, 1000);
-});
+To see all of the shortcuts for the current page press `?`:
 
-myPromise
-    .then(function(data) {
-        console.log('Success: ' + data);
-    })
-    .catch(function(err) {
-        console.log('Error: ' + err);
-    });
+![Keyboard shortcuts](http://i.imgur.com/y5ZfNEm.png)
 
-// If Math.random() returns less than 0.9 the following is logged:
-// "Success: Hooray!"
-// If Math.random() returns 0.9 or greater the following is logged:
-// "Error: Oh no!"
-```
+[Read more about search syntax you can use.](https://help.github.com/articles/search-syntax/)
 
-### Avoid the nesting anti-pattern of promise chaining!
+### Line Highlighting in Repositories
+Either adding, e.g., `#L52` to the end of a code file URL or simply clicking the line number will highlight that line number.
 
-`.then` methods can be chained. I see a lot of new comers end up in some kind of call back hell inside of a promise when it's completely unnecessary.
+It also works with ranges, e.g., `#L53-L60`, to select ranges, hold `shift` and click two lines:
 
-```javascript
-//The wrong way
-getSomedata.then(data => {
-    getSomeMoreData(data).then(newData => {
-        getSomeRelatedData(newData => {
-            console.log(newData);
-        });
-    });
-});
 ```
-
-```javascript
-//The right way
-getSomeData
-    .then(data => {
-        return getSomeMoreData(data);
-    })
-    .then(data => {
-        return getSomeRelatedData(data);
-    })
-    .then(data => {
-        console.log(data);
-    });
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model.rb#L53-L60
 ```
 
-You can see how it's much easier to read the second form and with ES6 implicit returns we could even simplify that further:
+![Line Highlighting](http://i.imgur.com/8AhjrCz.png)
 
-```javascript
-getSomeData
-    .then(data => getSomeMoreData(data))
-    .then(data => getSomeRelatedData(data))
-    .then(data => console.log(data));
-```
-Because the function supplied to .then will be called with the the result of the resolve method from the promise we can omit the ceremony of creating an anonymous function altogether. This is equivalent to above:
+### Closing Issues via Commit Messages
+If a particular commit fixes an issue, any of the keywords `fix/fixes/fixed`, `close/closes/closed` or `resolve/resolves/resolved`, followed by the issue number, will close the issue once it is committed to the repository's default branch.
 
-```javascript
-getSomeData
-    .then(getSomeMoreData)
-    .then(getSomeRelatedData)
-    .then(console.log);
+```bash
+$ git commit -m "Fix screwup, fixes #12"
 ```
 
-## Async Await
+This closes the issue and references the closing commit.
 
-Once you get the hang of javascript promises, you might like `async await`, which is just "syntactic sugar" on top of promises. In the following example we create an `async` function and within that we `await` the `greeter` promise.
+![Closing Repo](http://i.imgur.com/Uh1gZdx.png)
 
-```javascript
-const greeter = new Promise((res, rej) => {
-    setTimeout(() => res('Hello world!'), 2000);
-});
+[*Read more about closing Issues via commit messages.*](https://help.github.com/articles/closing-issues-via-commit-messages/)
 
-async function myFunc() {
-    const greeting = await greeter;
-    console.log(greeting);
-}
+### Cross-Link Issues
+If you want to link to another issue in the same repository, simply type hash `#` then the issue number, and it will be auto-linked.
 
-myFunc();
-// 'Hello world!'
-```
+To link to an issue in another repository, `{user}/{repo}#ISSUE_NUMBER`, e.g., `tiimgreen/toc#12`.
 
-### Async functions return a promise
+![Cross-Link Issues](https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67)
 
-One important thing to note here is that the result of an `async` function is a promise.
+### Locking Conversations
+Pull Requests and Issues can now be locked by owners or collaborators of the repo.
 
-```javascript
-const greeter = new Promise((res, rej) => {
-    setTimeout(() => res('Hello world!'), 2000);
-});
+![Lock conversation](https://cloud.githubusercontent.com/assets/2723/3221693/bf54dd44-f00d-11e3-8eb6-bb51e825bc2c.png)
 
-async function myFunc() {
-    return await greeter;
-}
+This means that users who are not collaborators on the project will no longer be able to comment.
 
-console.log(myFunc()); // => Promise {}
+![Comments locked](https://cloud.githubusercontent.com/assets/2723/3221775/d6e513b0-f00e-11e3-9721-2131cb37c906.png)
 
-myFunc().then(console.log); // => Hello world!
-```
+[*Read more about locking conversations.*](https://github.com/blog/1847-locking-conversations)
 
-## DOM Manipulation
 
-### Create Your Own Query Selector Shorthand
+### CI Status on Pull Requests
+If set up correctly, every time you receive a Pull Request, [Travis CI](https://travis-ci.org/) will build that Pull Request just like it would every time you make a new commit. Read more about how to [get started with Travis CI](http://docs.travis-ci.com/user/getting-started/).
 
-When working with JS in the browser, instead of writing `document.querySelector()`/`document.querySelectorAll()` multiple times, you could do the following thing:
+[![Travis CI status](https://cloud.githubusercontent.com/assets/1687642/2700187/3a88838c-c410-11e3-9a46-e65e2a0458cd.png)](https://github.com/octokit/octokit.rb/pull/452)
 
-```javascript
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+[*Read more about the commit status API.*](https://github.com/blog/1227-commit-status-api)
 
-// Usage
-const demo = $('#demo');
-// Select all the `a` tags
-[...$$("a[href *='#']")].forEach(console.log);
-```
+### Filters
 
-## Interview Questions
+Both issues and pull requests allow filtering in the user interface.
 
-### Traversing a Linked List
+For the Rails repo: https://github.com/rails/rails/issues, the following filter is built by selecting the label "activerecord":
 
-Here's a javascript solution to a classic software development interview question: traversing a linked list. You can use a while loop to recursively iterate through the linked list until there are no more values!
+`is:issue label:activerecord`
 
-```javascript
-const linkedList = {
-    val: 5,
-    next: {
-        val: 3,
-        next: {
-            val: 10,
-            next: null
-        }
-    }
-};
+But, you can also find all issues that are NOT labeled activerecord:
 
-const arr = [];
-let head = linkedList;
+`is:issue -label:activerecord`
 
-while (head !== null) {
-    arr.push(head.val);
-    head = head.next;
-}
+Additionally, this also works for pull requests:
 
-console.log(arr);
-// [5, 3, 10]
-```
+`is:pr -label:activerecord`
 
-## Miscellaneous
+Github has tabs for displaying open or closed issues and pull requests but you
+can also see merged pull requests.  Just put the following in the filter:
 
-### Increment and Decrement
+`is:merged`
 
-Ever wonder what the difference between `i++` and `++i` was? Did you know both were options? `i++` returns `i` and then increments it whereas `++i` increments `i` and then returns it.
+[*Read more about searching issues.*](https://help.github.com/articles/searching-issues/)
 
-```javascript
-let i = 0;
-console.log(i++);
-// 0
-```
+Finally, github now allows you to filter by the Status API's status.
 
-```javascript
-let i = 0;
-console.log(++i);
-// 1
-```
+Pull requests with only successful statuses:
 
-**[⬆ Back to Top](#table-of-contents)**
-### How to generate a random number in a given range
-```javascript
-// Returns a random number(float) between min (inclusive) and max (exclusive) 
+`status:success`
 
-const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
+[*Read more about searching on the Status API.*](https://github.com/blog/2014-filter-pull-requests-by-status)
 
-getRandomNumber(2, 10)
+### Syntax Highlighting in Markdown Files
+For example, to syntax highlight Ruby code in your Markdown files write:
 
- // Returns a random number(int) between min (inclusive) and max (inclusive)
+    ```ruby
+    require 'tabbit'
+    table = Tabbit.new('Name', 'Email')
+    table.add_row('Tim Green', 'tiimgreen@gmail.com')
+    puts table.to_s
+    ```
 
-const getRandomNumberInclusive =(min, max)=> {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+This will produce:
 
-getRandomNumberInclusive(2, 10);
+```ruby
+require 'tabbit'
+table = Tabbit.new('Name', 'Email')
+table.add_row('Tim Green', 'tiimgreen@gmail.com')
+puts table.to_s
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-### How to find the difference between two arrays
 
-```javascript
-const firstArr = [5, 2, 1];
-const secondArr = [1, 2, 3, 4, 5];
+GitHub uses [Linguist](https://github.com/github/linguist) to perform language detection and syntax highlighting. You can find out which keywords are valid by perusing the [languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-const diff = [
-    ...secondArr.filter(x => !firstArr.includes(x)),					
-    ...firstArr.filter(x => !secondArr.includes(x))
-];
-console.log('diff',diff) //[3,4]
+[*Read more about GitHub Flavored Markdown.*](https://help.github.com/articles/github-flavored-markdown/)
 
+### Emojis
+Emojis can be added to Pull Requests, Issues, commit messages, repository descriptions, etc. using `:name_of_emoji:`.
 
-function arrayDiff(a, b) {
-    return [
-        ...a.filter(x => b.indexOf(x) === -1),
-        ...b.filter(x => a.indexOf(x) === -1)
-    ]
-}
-console.log('arrayDiff',arrayDiff(firstArr, secondArr)) //[3,4]
+The full list of supported Emojis on GitHub can be found at [emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com/) or [scotch-io/All-Github-Emoji-Icons](https://github.com/scotch-io/All-Github-Emoji-Icons).
+A handy emoji search engine can be found at [emoji.muan.co](http://emoji.muan.co/).
 
+The top 5 used Emojis on GitHub are:
 
+1. `:shipit:`
+2. `:sparkles:`
+3. `:-1:`
+4. `:+1:`
+5. `:clap:`
 
+### Images/GIFs
+Images and GIFs can be added to comments, READMEs etc.:
 
-const difference = (a, b) => {
-    const setA = new Set(a);
-    const setB = new Set(b);
-
-    return [
-        ...a.filter(x => !setB.has(x)),
-        ...b.filter(x => !setA.has(x))
-
-    ]
-};
-
-difference(firstArr, secondArr); //[3,4]
-console.log('difference',difference(firstArr, secondArr))
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-### Convert truthy falsy to boolean
-
-```javascript
-const myVar = null; 
-const mySecondVar = 1; 
-
-console.log( Boolean(myVar) ) // false
-console.log( !!myVar ) // false
-
-
-console.log( Boolean(mySecondVar) ) // true
-console.log( !!mySecondVar ) // true
+![Alt Text](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
 ```
-**[⬆ Back to Top](#table-of-contents)**
-### Repeat a string
-```javascript
-
-let aliens = '';
-
-for(let i = 0 ; i < 6 ; i++){
- aliens += '👽'
-}
-//👽👽👽👽👽👽
-
-Array(6).join('👽')
-//👽👽👽👽👽👽
 
+Raw images from the repo can be used by calling them directly.:
 
-'👽'.repeat(6)
-//👽👽👽👽👽👽
-
 ```
-**[⬆ Back to Top](#table-of-contents)**
-### Check how long an operation takes
-```javascript
-//The performance.now() method returns a DOMHighResTimeStamp, measured in milliseconds.
-//performance.now() is relative to page load and more precise in orders of magnitude. 
-//Use cases include benchmarking and other cases where a high-resolution time is required 
-//such as media (gaming, audio, video, //etc.)
-
-var startTime = performance.now();
-doSomething();
-const endTime = performance.now();
-console.log("this doSomething took " + (endTime - startTime) + " milliseconds.");
+![Alt Text](https://github.com/{user}/{repo}/raw/master/path/to/image.gif)
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-### Two ways to remove an item in a specific in an array
+![Peter don't care](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
 
-```javascript
-//Mutating way
-const muatatedArray = ['a','b','c','d','e'];
-muatatedArray.splice(2,1)
-console.log(muatatedArray) //['a','b','d','e']
+All images are cached on GitHub, so if your host goes down, the image will remain available.
 
-//Non-mutating way
-const nonMuatatedArray = ['a','b','c','d','e'];
-const newArray = nonMuatatedArray.filter((item, index) => !( index === 2 ));
-console.log(newArray) //['a','b','d','e']
-```
+#### Embedding Images in GitHub Wiki
+There are multiple ways of embedding images in Wiki pages. There's the standard Markdown syntax (shown above). But there's also a syntax that allows things like specifying the height or width of the image:
 
-**[⬆ Back to Top](#table-of-contents)**
-### Did you know you can flat an array
+```markdown
+[[ http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif | height = 100px ]]
+```
 
-```javascript
-const myArray = [2, 3, [4, 5],[7,7, [8, 9, [1, 1]]]];
+Which produces:
 
-myArray.flat() // [2, 3, 4, 5 ,7,7, [8, 9, [1, 1]]]
+![Just a screenshot](http://i.imgur.com/J5bMf7S.png)
 
-myArray.flat(1) // [2, 3, 4, 5 ,7,7, [8, 9, [1, 1]]]
+### Quick Quoting
+When on a comment thread and you want to quote something someone previously said, highlight the text and press `r`, this will copy it into your text box in the block-quote format.
 
-myArray.flat(2) // [2, 3, 4, 5 ,7,7, 8, 9, [1, 1]]
+![Quick Quote](https://f.cloud.github.com/assets/296432/124483/b0fa6204-6ef0-11e2-83c3-256c37fa7abc.gif)
 
-//if you dont know the depth of the array you can use infinity
-myArray.flat(infinity) // [2, 3, 4, 5 ,7,7, 8, 9, 1, 1];
+[*Read more about quick quoting.*](https://github.com/blog/1399-quick-quotes)
 
-```
+### Pasting Clipboard Image to Comments
 
-**[⬆ Back to Top](#table-of-contents)**
-### Get unique values in an array
+_(Works on Chrome browsers only)_
 
-```javascript
-const numbers = [1,1,3,2,5,3,4,7,7,7,8];
+After taking a screenshot and adding it to the clipboard (mac: `cmd-ctrl-shift-4`), you can simply paste (`cmd-v / ctrl-v`) the image into the comment section and it will be auto-uploaded to github.
 
-//Ex1
-const unieqNumbers = numbers.filter((v,i,a) => a.indexOf(v )=== i )
-console.log(unieqNumbers) //[1,3,2,5,4,7,8]
+![Pasting Clipboard Image to Comments](https://cloud.githubusercontent.com/assets/39191/5794265/39c9b65a-9f1b-11e4-9bc7-04e41f59ea5f.png)
 
-//Ex2
-const unieqNumbers2 = Array.from(new Set(numbers))
-console.log(unieqNumbers2) //[1,3,2,5,4,7,8]
+[*Read more about issue attachments.*](https://help.github.com/articles/issue-attachments/)
 
-//Ex3
-const unieqNumbers3 = [...new Set(numbers)]
-console.log(unieqNumbers3) //[1,3,2,5,4,7,8]
+### Quick Licensing
+When creating a repository, GitHub gives you the option of adding in a pre-made license:
 
-//EX4 lodash
-const unieqNumbers4 = _.uniq(numbers)
-console.log(unieqNumbers4) //[1,3,2,5,4,7,8]
+![License](http://i.imgur.com/Chqj4Fg.png)
 
-```
+You can also add them to existing repositories by creating a new file through the web interface. When the name `LICENSE` is typed in you will get an option to use a template:
 
-**[⬆ Back to Top](#table-of-contents)**
-### Copy Text to Clipboard
+![License](http://i.imgur.com/fTjQict.png)
 
+Also works for `.gitignore`.
 
-```javascript
-function copyToClipboard() {
+[*Read more about open source licensing.*](https://help.github.com/articles/open-source-licensing/)
 
-  const copyText = document.getElementById("myInput");
-  copyText.select();
-  document.execCommand("copy");
-  
-}
-//new API
-function copyToClipboard(){
- navigator.clipboard.writeText(document.querySelector('#myInput').value)
-}
+### Task Lists
+In Issues and Pull requests check boxes can be added with the following syntax (notice the space):
 
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-###  Nested Destructuring
-
-
-```javascript
-const user = {
- id: 459,
- name: 'JS snippets',
- age:29,
- education:{
-  degree: 'Masters'
- }
-}
-
-const { education : { degree } } = user;
-console.log(degree) //Masters
+- [ ] Be awesome
+- [ ] Prepare dinner
+  - [ ] Research recipe
+  - [ ] Buy ingredients
+  - [ ] Cook recipe
+- [ ] Sleep
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-###  URLSearchParams 
+![Task List](http://i.imgur.com/jJBXhsY.png)
 
+When they are clicked, they will be updated in the pure Markdown:
 
-```javascript
-//The URLSearchParams interface defines utility methods to work with the query string of a URL.
-
-const urlParams = new URLSearchParams("?post=1234&action=edit");
-
-console.log(urlParams.has('post')); // true
-console.log(urlParams.get('action')); // "edit"
-console.log(urlParams.getAll('action')); // ["edit"]
-console.log(urlParams.toString()); // "?post=1234&action=edit"
-console.log(urlParams.append('active', '1')); // "?post=1234&action=edit&active=1"
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-###  Count elements in an array
+- [x] Be awesome
+- [ ] Prepare dinner
+  - [x] Research recipe
+  - [x] Buy ingredients
+  - [ ] Cook recipe
+- [ ] Sleep
+```
 
+[*Read more about task lists.*](https://help.github.com/articles/writing-on-github/#task-lists)
 
-```javascript
-const myFruits = ['Apple','Orange','Mango','Banana','Apple','Apple','Mango']
+#### Task Lists in Markdown Documents
+In full Markdown documents **read-only** checklists can now be added using the following syntax:
 
-//first option
-const countMyFruits = myFruits.reduce((countFruits,fruit) => {
-  countFruits[fruit] = ( countFruits[fruit] || 0 ) +1;
-  return countFruits
- },{} )
- console.log(countMyFruits)
- // { Apple:3, Banana:1, Mango:2, Orange:1 }
- 
- //seconf option
- const fruitsCounter = {};
- 
- for( const fruit of myFruits ){
-   fruitsCounter[fruit] = fruitsCounter[fruit] ? fruitsCounter[fruit]+1 :1;
- }
-  
- console.log(fruitsCounter)
- // { Apple:3, Banana:1, Mango:2, Orange:1 }
+```
+- [ ] Mercury
+- [x] Venus
+- [x] Earth
+  - [x] Moon
+- [x] Mars
+  - [ ] Deimos
+  - [ ] Phobos
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-###  Aliases with JavaScript Destructuring
+- [ ] Mercury
+- [x] Venus
+- [x] Earth
+  - [x] Moon
+- [x] Mars
+  - [ ] Deimos
+  - [ ] Phobos
 
+[*Read more about task lists in markdown documents.*](https://github.com/blog/1825-task-lists-in-all-markdown-documents)
 
-```javascript
+### Relative Links
+Relative links are recommended in your Markdown files when linking to internal content.
 
-//There are cases where you want the destructured variable to have a different name than the property name
+```markdown
+[Link to a header](#awesome-section)
+[Link to a file](docs/readme)
+```
 
-const obj = { 
-  name: "JSsnippets"													
-};
+Absolute links have to be updated whenever the URL changes (e.g., repository renamed, username changed, project forked). Using relative links makes your documentation easily stand on its own.
 
+[*Read more about relative links.*](https://help.github.com/articles/relative-links-in-readmes/)
 
-// Grabs obj.name as { pageName }
-const { name: pageName } = obj;
+### Metadata and Plugin Support for GitHub Pages
+Within Jekyll pages and posts, repository information is available within the `site.github` namespace, and can be displayed, for example, using `{{ site.github.project_title }}`.
 
-//log our alias
-console.log(pageName) // JSsnippets
-```
+The Jemoji and jekyll-mentions plugins enable [emoji](#emojis) and [@mentions](https://github.com/blog/821) in your Jekyll posts and pages to work just like you'd expect when interacting with a repository on GitHub.com.
 
+[*Read more about repository metadata and plugin support for GitHub Pages.*](https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages)
 
-**[⬆ Back to Top](#table-of-contents)**
-###  The Object.is() method determines whether two values are the same value
+### Viewing YAML Metadata in your Documents
+Many blogging websites, like [Jekyll](http://jekyllrb.com/) with [GitHub Pages](https://pages.github.com), depend on some YAML-formatted metadata at the beginning of your post. GitHub will render this metadata as a horizontal table, for easier reading
 
+![YAML metadata](https://camo.githubusercontent.com/47245aa16728e242f74a9a324ce0d24c0b916075/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f36343035302f313232383236372f65303439643063362d323761302d313165332d396464382d6131636432323539393334342e706e67)
 
-```javascript
-Object.is('foo', 'foo');     // true
+[*Read more about viewing YAML metadata in your documents.*](https://github.com/blog/1647-viewing-yaml-metadata-in-your-documents)
 
-Object.is(null, null);       // true
+### Rendering Tabular Data
+GitHub supports rendering tabular data in the form of `.csv` (comma-separated) and `.tsv` (tab-separated) files.
 
-Object.is(Nan, Nan);       // true 😱
+![Tabular data](https://camo.githubusercontent.com/1b6dd0157ffb45d9939abf14233a0cb13b3b4dfe/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3238323735392f3937363436322f33323038336463652d303638642d313165332d393262322d3566323863313061353035392e706e67)
 
-const foo = { a: 1 };
-const bar = { a: 1 };
-Object.is(foo, foo);         // true
-Object.is(foo, bar);         // false
+[*Read more about rendering tabular data.*](https://github.com/blog/1601-see-your-csvs)
 
-```
+### Rendering PDF
 
+GitHub supports rendering PDF:
 
-**[⬆ Back to Top](#table-of-contents)**
-###  Freeze an object
+![PDF](https://cloud.githubusercontent.com/assets/1000669/7492902/f8493160-f42e-11e4-8cea-1cb4f02757e7.png)
 
+[*Read more about rendering PDF.*](https://github.com/blog/1974-pdf-viewing)
 
-```javascript
-const obj = { 
-  name: "JSsnippets",
-  age:29,
-  address:{
-	  street : 'JS'
-	}
-};														
+### Revert a Pull Request
+After a pull request is merged, you may find it does not help anything or it was a bad decision to merge the pull request.
 
-const frozenObject = Object.freeze(obj);
+You can revert it by clicking the **Revert** button on the right side of a commit in the pull request page to create a pull request with reverted changes to this specific pull request.
 
-frozenObject.name = 'weLoveJS'; // Uncaught TypeError
+![Revert button](https://camo.githubusercontent.com/0d3350caf2bb1cba53123ffeafc00ca702b1b164/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f68656c702f70756c6c5f72657175657374732f7265766572742d70756c6c2d726571756573742d6c696e6b2e706e67)
 
-//Although, we still can change a property’s value if it’s an object:
+[*Read more about reverting pull requests*](https://github.com/blog/1857-introducing-the-revert-button)
 
-frozenObject.address.street = 'React'; // no error, new value is set
+### Diffs
+#### Rendered Prose Diffs
+Commits and pull requests, including rendered documents supported by GitHub (e.g., Markdown), feature *source* and *rendered* views.
 
+![Source / Rendered view](https://github-images.s3.amazonaws.com/help/repository/rendered_prose_diff.png)
 
-delete frozenObject.name // Cannot delete property 'name' of #<Object>
+Click the "rendered" button to see the changes as they'll appear in the rendered document. Rendered prose view is handy when you're adding, removing, and editing text:
 
+![Rendered Prose Diffs](https://f.cloud.github.com/assets/17715/2003056/3997edb4-862b-11e3-90be-5e9586edecd7.png)
 
-//We can check if an object is frozen by using
-Object.isFrozen(obj) //true
+[*Read more about rendered prose diffs.*](https://github.com/blog/1784-rendered-prose-diffs)
 
-```
+#### Diffable Maps
+Any time you view a commit or pull request on GitHub that includes geodata, GitHub will render a visual representation of what was changed.
 
-**[⬆ Back to Top](#table-of-contents)**
-###  Printing Object keys and values
+[![Diffable Maps](https://f.cloud.github.com/assets/282759/2090660/63f2e45a-8e97-11e3-9d8b-d4c8078b004e.gif)](https://github.com/benbalter/congressional-districts/commit/2233c76ca5bb059582d796f053775d8859198ec5)
 
+[*Read more about diffable maps.*](https://github.com/blog/1772-diffable-more-customizable-maps)
 
-```javascript
-const obj = { 
-  name: "JSsnippets",
-  age:29,
-};
+#### Expanding Context in Diffs
+Using the *unfold* button in the gutter of a diff, you can reveal additional lines of context with a click. You can keep clicking *unfold* until you've revealed the whole file, and the feature is available anywhere GitHub renders diffs.
 
-//Object.entries() method is used to return an array consisting of enumerable property 
-//[key, value] pairs of the object which are passed as the parameter.
+![Expanding Context in Diffs](https://f.cloud.github.com/assets/22635/1610539/863c1f64-5584-11e3-82bf-151b406a272f.gif)
 
-for(let [key,value] of Object.entries(obj)){
-   console.log(`${key}: ${value}`)
-}
+[*Read more about expanding context in diffs.*](https://github.com/blog/1705-expanding-context-in-diffs)
 
-//expected output:
-// "name: Jssnippets"
-// "age: 29"
-// order is not guaranteed
+#### Diff or Patch of Pull Request
+You can get the diff of a Pull Request by adding a `.diff` or `.patch`
+extension to the end of the URL. For example:
 
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-###  Capture the right click event
-
-```javascript
-window.oncontextmenu = () => {
-	console.log('right click');
-	return false // cancel default menu
-}
-//or
-
-window.addEventListener('contextmenu', ()=>{
-	console.log('right click');
-	return false // cancel default menu
-},false)
+https://github.com/tiimgreen/github-cheat-sheet/pull/15
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.diff
+https://github.com/tiimgreen/github-cheat-sheet/pull/15.patch
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-###  In HTML5, you can tell the browser when to run your JavaScript code
-```javascript
+The `.diff` extension would give you this in plain text:
 
-//Without async or defer, browser will run your script immediately, before rendering the elements that's below your script tag.
-<script src="myscript.js"></script>
-
-//With async (asynchronous), browser will continue to load the HTML page and render it while the browser load and execute the script at the same time.
-//Async is more useful when you really don't care when the script loads and nothing else that is user dependent depends upon that script loading.(for scripts likes Google analytics)
-<script async src="myscript.js"></script>
-
-//With defer, browser will run your script when the page finished parsing. (not necessary finishing downloading all image files. 
-<script defer src="myscript.js"></script>
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-###   Nullish coalescing operator
-```javascript
+diff --git a/README.md b/README.md
+index 88fcf69..8614873 100644
+--- a/README.md
++++ b/README.md
+@@ -28,6 +28,7 @@ All the hidden and not hidden features of Git and GitHub. This cheat sheet was i
+ - [Merged Branches](#merged-branches)
+ - [Quick Licensing](#quick-licensing)
+ - [TODO Lists](#todo-lists)
++- [Relative Links](#relative-links)
+ - [.gitconfig Recommendations](#gitconfig-recommendations)
+     - [Aliases](#aliases)
+     - [Auto-correct](#auto-correct)
+@@ -381,6 +382,19 @@ When they are clicked, they will be updated in the pure Markdown:
+ - [ ] Sleep
 
-// an equality check against nullary values (e.g. null or undefined). Whenever the expression to the left of the ?? operator evaluates to either //undefined or null, the value defined to the right will be returned.
-
-const foo = undefined ?? 'default string';
-console.log(foo);
-// expected output: "default string"
-
-
-const age = 0 ?? 30;
-console.log(age);
-// expected output: "0"
+(...)
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-###  Optional chaining
-```javascript
+#### Rendering and diffing images
+GitHub can display several common image formats, including PNG, JPG, GIF, and PSD. In addition, there are several ways to compare differences between versions of those image formats.
 
-const car = {}
-const carColor = car.name.color
-console.log(carColor);
-// error- "Uncaught TypeError: Cannot read property 'carColor' of undefined		
+[![Diffable PSD](https://cloud.githubusercontent.com/assets/2546/3165594/55f2798a-eb56-11e3-92e7-b79ad791a697.gif)](https://github.com/blog/1845-psd-viewing-diffing)
 
-//In JavaScript, you can first check if an object exists, and then try to get one of its properties, like this:
-const carColor = car && car.name && car.name.color;
-console.log(carColor);
-//undefined- no error
+[*Read more about rendering and diffing images.*](https://help.github.com/articles/rendering-and-diffing-images/)
 
+### Hub
+[Hub](https://github.com/github/hub) is a command line Git wrapper that gives you extra features and commands that make working with GitHub easier.
 
-//Now this new optional chaining operator will let us be even more fancy:
+This allows you to do things like:
 
-const newCarColor = car?.name?.color;
-console.log(newCarColor) 
-//undefined- no error
-					
-//You can use this syntax today using @babel/plugin-proposal-optional-chaining
+```bash
+$ hub clone tiimgreen/toc
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-###  globalThis
-```javascript
-Accessing the global property in JavaScript has always posed some difficulty. This is because 
-different platforms have different ways to access it.
+[*Check out some more cool commands Hub has to offer.*](https://github.com/github/hub#commands)
 
-Client-side JavaScript uses window or self
+### Contribution Guidelines
+GitHub supports adding 3 different files which help users contribute to your project.
+These files can either be placed in the root of your repository or a `.github` directory under the root.
 
-Node.js uses global
+#### CONTRIBUTING File
+Adding a `CONTRIBUTING` or `CONTRIBUTING.md` file to either the root of your repository or a `.github` directory will add a link to your file when a contributor creates an Issue or opens a Pull Request.
 
-Web workers use self
+![Contributing Guidelines](https://camo.githubusercontent.com/71995d6b0e620a9ef1ded00a04498241c69dd1bf/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f736b697463682f6973737565732d32303132303931332d3136323533392e6a7067)
 
-The globalThis property provides a standard way of accessing the global 'this' value across environments. you can access the global object in a consistent manner without having to know which environment the code is being run in. 
+[*Read more about contributing guidelines.*](https://github.com/blog/1184-contributing-guidelines)
 
-console.log(globalThis) //get the global this depends on your environment
-
-```
+#### ISSUE_TEMPLATE file
+You can define a template for all new issues opened in your project. The content of this file will pre-populate the new issue box when users create new issues. Add an `ISSUE_TEMPLATE` or `ISSUE_TEMPLATE.md` file to either the root of your repository or a `.github` directory.
 
+[*Read more about issue templates.*](https://github.com/blog/2111-issue-and-pull-request-templates)
 
-**[⬆ Back to Top](#table-of-contents)**
-#  The second argument of JSON.stringify lets you cherry-pick 🍒 keys to serialize.
-```javascript
-const user = {
- id: 459,
- name: 'JS snippets',
- age:29,
- education:{
-  degree: 'Masters'
- }
-}
+[Issue template file generator](https://www.talater.com/open-source-templates/)
 
-JSON.stringify(user,[name,age], 2)						
+![GitHub Issue template](https://cloud.githubusercontent.com/assets/25792/13120859/733479fe-d564-11e5-8a1f-a03f95072f7a.png)
 
-/*
-returns
+#### PULL_REQUEST_TEMPLATE file
+You can define a template for all new pull requests opened in your project. The content of this file will pre-populate the text area when users create pull requests. Add a `PULL_REQUEST_TEMPLATE` or `PULL_REQUEST_TEMPLATE.md` file to either the root of your repository or a `.github` directory.
 
-{
-  "name": "JS snippets",
-  "age": 29
-}
+[*Read more about pull request templates.*](https://github.com/blog/2111-issue-and-pull-request-templates)
 
+[Pull request template file generator](https://www.talater.com/open-source-templates/)
 
-*/
+### Octicons
+GitHubs icons (Octicons) have now been open sourced.
 
-```
+![Octicons](https://og.github.com/octicons/octicons@1200x630.png)
 
-**[⬆ Back to Top](#table-of-contents)**
-###  Fire an event listener only once
-```javascript
-const el = document.getElementById("btn");
+[*Read more about GitHub's Octicons*](https://octicons.github.com)
 
-function myClickHandler(){
-  console.log('this click will only fire once')
-}
+### GitHub Student Developer Pack
 
+If you are a student you will be eligible for the GitHub Student Developer Pack. This gives you free credit, free trials and early access to software that will help you when developing.
 
-el.addEventListener('click', myClickHandler, {
-  once: true,
-});
+![GitHub Student Developer Pack](http://i.imgur.com/9ru3K43.png)
 
-```
-**[⬆ Back to Top](#table-of-contents)**
-###  Vanilla JS toggle
-```javascript
-const span = document.querySelector("span");
-let classes = span.classList;
+[*Read more about GitHub's Student Developer Pack*](https://education.github.com/pack)
 
-span.addEventListener("click", function() {
-  let result = classes.toggle("active");
+### GitHub Resources
+| Title | Link |
+| ----- | ---- |
+| GitHub Explore | https://github.com/explore |
+| GitHub Blog | https://github.com/blog |
+| GitHub Help | https://help.github.com/ |
+| GitHub Training | https://training.github.com/ |
+| GitHub Developer | https://developer.github.com/ |
+| Github Education (Free Micro Account and other stuff for students) | https://education.github.com/ |
+| GitHub Best Practices | [Best Practices List](https://www.datree.io/resources/github-best-practices) |
 
-  if (result) {
-    console.log("active class was added");
-  } else {
-    console.log("active class was removed");
-  }
-});
+#### GitHub Talks
+| Title | Link |
+| ----- | ---- |
+| How GitHub Uses GitHub to Build GitHub | https://www.youtube.com/watch?v=qyz3jkOBbQY |
+| Introduction to Git with Scott Chacon of GitHub | https://www.youtube.com/watch?v=ZDR433b0HJY |
+| How GitHub No Longer Works | https://www.youtube.com/watch?v=gXD1ITW7iZI |
+| Git and GitHub Secrets | https://www.youtube.com/watch?v=Foz9yvMkvlA |
+| More Git and GitHub Secrets | https://www.youtube.com/watch?v=p50xsL-iVgU |
 
-```
+### SSH keys
 
-**[⬆ Back to Top](#table-of-contents)**
-### Check if a string is a valid JSON
+You can get a list of public ssh keys in plain text format by visiting:
 
-```javascript
-function isJson(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-      //the json is  not ok
-        return false;
-    }
-    //the json is ok
-    return true;									
-}
 ```
-**[⬆ Back to Top](#table-of-contents)**
-### getBoundingClientRect
-
-```javascript
-//getBoundingClientRect provides you with important pieces of data about an
-//HTML element’s size and positioning.
-
-const bodyBounderies = document.body.getBoundingClientRect();
-// =>  {
-//       top: Number,
-//       left: Number,
-//       right: Number,
-//       bottom: Number,
-//       x: Number,
-//       y: Number,
-//       width: Number,
-//       height: Number,
-//     }
+https://github.com/{user}.keys
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
-### Check if a node is in the viewport
-bonus: add/remove animation depending if an image is in the viewport
-https://codepen.io/JSsnippets/pen/PoqrjEY
-```javascript
-const image = document.querySelector('.animate-me');
+e.g. [https://github.com/tiimgreen.keys](https://github.com/tiimgreen.keys)
 
-observer = new IntersectionObserver((entries) => {
-  const [ myImg ] = entries;
-    if (myImg.intersectionRatio > 0) {
-      myImg.target.classList.add('fancy');
-    } else {
-      myImg.target.classList.remove('fancy');
-    }
-});
+[*Read more about accessing public ssh keys.*](https://changelog.com/github-exposes-public-ssh-keys-for-its-users/)
 
+### Profile Image
 
-observer.observe(image);
+You can get a user's profile image by visiting:
 
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-### Notify when element size is changed 
-see our codepen: https://codepen.io/JSsnippets/pen/dyYoYVX
-```javascript
-const foo = document.getElementById("foo");
-
-const observer = new ResizeObserver((entries) => {
-  for (let entry of entries) {
-    const cr = entry.contentRect;
-    console.log = `Size: ${cr.width}px X ${cr.height}px`;
-  }
-});
-observer.observe(foo);
-
+https://github.com/{user}.png
 ```
-**[⬆ Back to Top](#table-of-contents)**
-### Detect if Browser Tab is in the view
-play/pause video accordingly
-see our codepen: https://codepen.io/JSsnippets/pen/gOapPzq
-```javascript
-
-
-const video =  document.getElementById("my-video");
-
-const onVisibilitychange =()=>{
-   return document.hidden 
-     ? video.pause() 
-     : video.play();
-} 
 
-document.addEventListener("visibilitychange", onVisibilitychange)
+e.g. [https://github.com/tiimgreen.png](https://github.com/tiimgreen.png)
 
-```
-
+### Repository Templates
 
-**[⬆ Back to Top](#table-of-contents)**
-### Private class methods and fields
-```javascript
+You can enable templating on your repository which allows anyone to copy the directory structure and files, allowing them to instantly use the files (e.g. for a tutorial or if writing boilerplate code). This can be enabled in the settings of your repository.
 
-class Students {
-  #name;
+![Convert](https://i.postimg.cc/hGCrVm9F/Template.gif)
 
-  constructor(){
-    this.#name = "JS snippets";
-  }
+Changing to a template repository will give a new URL endpoint which can be shared and instantly allows users to use your repository as a template. Alternatively, they can go to your repository and click the 'Use as template' button.
 
-  #privateMethod() {
-    return 'Come and learn Js with us';
-  }
+![Template](https://i.postimg.cc/L8PKCHx0/New-Template.gif)
 
-  getPrivateMessage() {
-      return this.#privateMethod();
-  }
-}
+[*Read more about using repositories as templates*](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/)
 
-const instance = new Something();
-console.log(instance.name); //=> undefined
-console.log(instance.privateMethod); //=> undefined
-console.log(instance.getPrivateMessage()); //=> Come and learn Js with us
+## Git
+### Remove All Deleted Files from the Working Tree
+When you delete a lot of files using `/bin/rm` you can use the following command to remove them from the working tree and from the index, eliminating the need to remove each one individually:
 
+```bash
+$ git rm $(git ls-files -d)
 ```
 
+For example:
 
-**[⬆ Back to Top](#table-of-contents)**
-### Preventing paste into an input field
-see our codepen: https://codepen.io/JSsnippets/pen/qBbyMoJ
+```bash
+$ git status
+On branch master
+Changes not staged for commit:
+	deleted:    a
+	deleted:    c
 
-```javascript
+$ git rm $(git ls-files -d)
+rm 'a'
+rm 'c'
 
-const pasteBox = document.getElementById("paste-no-event");
-pasteBox.onpaste = (e) => {
-  e.preventDefault();
-  return false;
-};
-
+$ git status
+On branch master
+Changes to be committed:
+	deleted:    a
+	deleted:    c
 ```
 
+### Previous Branch
+To move to the previous branch in Git:
 
-**[⬆ Back to Top](#table-of-contents)**
-### The void operator 
-The void operator evaluates the given expression and then returns undefined.
-```javascript
+```bash
+$ git checkout -
+# Switched to branch 'master'
 
+$ git checkout -
+# Switched to branch 'next'
 
-void 0;  		//returns undefined
-void (0); 		//returns undefined
-void {}; 		//returns undefined
-void "JSsnippets; 	//returns undefined
-void (0); 		//returns undefined
-void (2 == '2'); 	//returns undefined
-void anyfunction(); 	//returns undefined
-
+$ git checkout -
+# Switched to branch 'master'
 ```
-
 
-**[⬆ Back to Top](#table-of-contents)**
-### replaceAll 
-the method string.replaceAll(search, replaceWith) replaces all appearances of search string with replaceWith.
-```javascript
+[*Read more about Git branching.*](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
 
+### Stripspace
 
-const str = 'this is a JSsnippets example';
+Git Stripspace:
 
-const updatedStr = str.replace('example', 'snippet'); // 'this is a  JSsnippets snippet'
+- Strips trailing whitespace
+- Collapses newlines
+- Adds newline to end of file
 
+A file must be passed when calling the command, e.g.:
+```bash
+$ git stripspace < README.md
+```
 
-The tricky part is that replace method replaces only the very first match of the substring we have passed:
+[*Read more about the Git `stripspace` command.*](http://git-scm.com/docs/git-stripspace)
 
+### Checking out Pull Requests
 
-const str = 'this is a JSsnippets example and examples are great';
+Pull Requests are special branches on the GitHub repository which can be retrieved locally in several ways:
 
-const updatedStr = str.replace('example', 'snippet'); //'this is a JSsnippets snippet and examples are great'
+Retrieve a specific Pull Request and store it temporarily in `FETCH_HEAD` for quickly `diff`-ing or `merge`-ing:
 
-In order to go through this, we need to use a global regexp instead:
+```bash
+$ git fetch origin refs/pull/[PR-Number]/head
+```
 
+Acquire all Pull Request branches as local remote branches by refspec:
 
-const str = 'this is a JSsnippets example and examples are great';
+```bash
+$ git fetch origin '+refs/pull/*/head:refs/remotes/origin/pr/*'
+```
 
-const updatedStr = str.replace(/example/g, 'snippet'); //'this is a JSsnippets snippet and snippets are greatr'
+Or setup the remote to fetch Pull Requests automatically by adding these corresponding lines in your repository's `.git/config`:
 
-but now we have new friend in town, replaceAll
+```
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@github.com:tiimgreen/github-cheat-sheet.git
+```
 
-const str = 'this is a JSsnippets example and examples are great';
+```
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@github.com:tiimgreen/github-cheat-sheet.git
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+```
 
-const updatedStr = str.replaceAll('example', 'snippet'); //'this is a JSsnippets snippet and snippets are greatr'
+For Fork-based Pull Request contributions, it's useful to `checkout` a remote branch representing the Pull Request and create a local branch from it:
 
+```bash
+$ git checkout pr/42 pr-42
 ```
 
+Or should you work on more repositories, you can globally configure fetching pull requests in the global git config instead.
 
-**[⬆ Back to Top](#table-of-contents)**
-### Required Function Params 
-Expanding on the default parameter technique, we can mark a parameter as mandatory
-
-```javascript
-const isRequired = () => {
-    throw new Error( 'This is a mandatory parameter.' );
-}
+```bash
+git config --global --add remote.origin.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
+```
 
+This way, you can use the following short commands in all your repositories:
 
-const getPage = ( pageName = 'Jssnippets', url = isRequired() ) => {
-    return `${pageName} ${url}`;
-}
+```bash
+git fetch origin
+```
 
-console.log(getPage());
+```bash
+git checkout pr/42
+```
 
-//In the above code, url will be undefined and that will try to set the default value for it which is the isRequired() function. It will throw an error as,
+[*Read more about checking out pull requests locally.*](https://help.github.com/articles/checking-out-pull-requests-locally/)
 
-//Uncaught error: This is a mandatory parameter.
-//at isRequired
+### Empty Commits
+Commits can be pushed with no code changes by adding `--allow-empty`:
 
+```bash
+$ git commit -m "Big-ass commit" --allow-empty
 ```
-
-
 
+Some use-cases for this (that make sense), include:
 
-**[⬆ Back to Top](#table-of-contents)**
-### Get input value as a number
+ - Annotating the start of a new bulk of work or a new feature.
+ - Documenting when you make changes to the project that aren't code related.
+ - Communicating with people using your repository.
+ - The first commit of a repository: `git commit -m "Initial commit" --allow-empty`.
 
-```javascript
+### Styled Git Status
+Running:
 
-<input type="number" id="JSsnippets" onkeyup="checkMyType(event)" />
+```bash
+$ git status
+```
 
-function checkMyType(event){
-  
-  console.log(typeof event.target.value) // string
-  console.log(typeof event.target.valueAsNumber ) // number
+produces:
 
-}
+![git status](http://i.imgur.com/qjPyvXb.png)
 
+By adding `-sb`:
 
+```bash
+$ git status -sb
 ```
-**[⬆ Back to Top](#table-of-contents)**
-### reduceRight
 
-```javascript
+this is produced:
 
-const arr = ["a", "b", "c", "d", "e"]
+![git status -sb](http://i.imgur.com/K0OY3nm.png)
 
-const reduceArray = arr.reduce((acc, current) => {
-    return acc + current
-}, "")
-//return abcde
+[*Read more about the Git `status` command.*](http://git-scm.com/docs/git-status)
 
-const reduceRightArray = arr.reduceRight((acc, current) => {
-    return acc + current
-}, "")
-//return edcba
+### Styled Git Log
+Running:
 
+```bash
+$ git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ```
-
-
-**[⬆ Back to Top](#table-of-contents)**
-### Abort Fetch
 
-```javascript
+produces:
 
+![git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative](http://i.imgur.com/58eOtkW.png)
 
-//HTML
-<button id="download">Download</button>
-<button id="abort">Abort</button>
+Credit to [Palesz](http://stackoverflow.com/users/88355/palesz)
 
-//JS
-let controller;
+*This can be aliased using the instructions found [here](https://github.com/tiimgreen/github-cheat-sheet#aliases).*
 
-document.querySelector('#download').addEventListener('click', () => {
-  controller = new AbortController();
-  const signal = controller.signal;
-  fetch('https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4', {signal})
-    .then(() => console.log('done'));
-});
+[*Read more about the Git `log` command.*](http://git-scm.com/docs/git-log)
 
-document.querySelector('#abort').addEventListener('click', function() {
-  controller.abort();
-});
+### Git Query
+A Git query allows you to search all your previous commit messages and find the most recent one matching the query.
 
+```bash
+$ git show :/query
 ```
 
+where `query` (case-sensitive) is the term you want to search, this then finds the last one and gives details on the lines that were changed.
 
-**[⬆ Back to Top](#table-of-contents)**
-### How to change the value of an object which is inside an array
-
-```javascript
-
-const state = [
-  {
-    userId: 1,
-    name: "JSSnippets",
-    isOwner: false,
-  },
-  {
-    userId: 2,
-    name: "React",
-    isOwner: false,
-  },
-  {
-    userId: 3,
-    name: "Vue",
-    isOwner: false,
-  },
-  {
-    userId: 4,
-    name: "Angular",
-    isOwner: false,
-  },
-];
-
-const newState = state.map((obj) =>
-  obj.name === "JSSnippets" ? { ...obj, isOwner: true } : obj			
-);
-
+```bash
+$ git show :/typo
 ```
+![git show :/query](http://i.imgur.com/icaGiNt.png)
 
-**[⬆ Back to Top](#table-of-contents)**
-### Numeric separators allow us to improve our code readability
+*Press `q` to quit.*
 
-```javascript
 
-100_000_000 === 100000000 // true
+### Git Grep
 
-300_000 === 300000 //true
+Git Grep will return a list of lines matching a pattern.
 
+Running:
+```bash
+$ git grep aliases
 ```
-
+will show all the files containing the string *aliases*.
 
+![git grep aliases](http://i.imgur.com/DL2zpQ9.png)
 
+*Press `q` to quit.*
 
+You can also use multiple flags for more advanced search. For example:
 
-**[⬆ Back to Top](#table-of-contents)**
-### pay attention when using every
+ * `-e` The next parameter is the pattern (e.g., regex)
+ * `--and`, `--or` and `--not` Combine multiple patterns.
 
-Calling this method on an empty array will return true for any condition!
-
+Use it like this:
+```bash
+ $ git grep -e pattern --and -e anotherpattern
+```
 
-```javascript
+[*Read more about the Git `grep` command.*](http://git-scm.com/docs/git-grep)
 
-const arr = []
-const result = arr.every(x=> x==5)
-console.log(result) //true
+### Merged Branches
+Running:
 
+```bash
+$ git branch --merged
 ```
 
+will give you a list of all branches that have been merged into your current branch.
 
+Conversely:
 
-
-
-**[⬆ Back to Top](#table-of-contents)**
-### How to convert an array of key-value tuples into an object
+```bash
+$ git branch --no-merged
+```
 
+will give you a list of branches that have not been merged into your current branch.
 
-```javascript
+[*Read more about the Git `branch` command.*](http://git-scm.com/docs/git-branch)
 
-const JSarr = [
-    ['name', 'JSsnippets'],
-    ['address', 'worldwide'],
-    ['year', '2018'],
-    ['followers', '15000']
+### Fixup and Autosquash
+If there is something wrong with a previous commit (can be one or more from HEAD), for example `abcde`, run the following command after you've amended the problem:
+```bash
+$ git commit --fixup=abcde
+$ git rebase abcde^ --autosquash -i
+```
+[*Read more about the Git `commit` command.*](http://git-scm.com/docs/git-commit)
+[*Read more about the Git `rebase` command.*](http://git-scm.com/docs/git-rebase)
 
-];
+### Web Server for Browsing Local Repositories
+Use the Git `instaweb` command to instantly browse your working repository in `gitweb`. This command is a simple script to set up `gitweb` and a web server for browsing the local repository.
 
-const obj = Object.fromEntries(JSarr);
-//{
-//  "name": "JSsnippets",
-// "address": "worldwide",
-//  "year": "2018",
-//  "followers": "15000"
-//}
+```bash
+$ git instaweb
 ```
-
-**[⬆ Back to Top](#table-of-contents)**
-### Native text to speech JS
 
+opens:
 
-```javascript
+![Git instaweb](http://i.imgur.com/Dxekmqc.png)
 
-const startSpeaking=()=>{
+[*Read more about the Git `instaweb` command.*](http://git-scm.com/docs/git-instaweb)
 
-	let msg = document.getElementById("text-to-speech").value;
-	let speech = new SpeechSynthesisUtterance();
-	
-	speech.lang = "en-US";
-	speech.text = msg;
-	speech.volume = 1;
-	speech.rate = 1;
-	speech.pitch = 1;
+### Git Configurations
+Your `.gitconfig` file contains all your Git configurations.
 
-	window.speechSynthesis.speak(speech);
-}
+#### Aliases
+Aliases are helpers that let you define your own git calls. For example you could set `git a` to run `git add --all`.
 
+To add an alias, either navigate to `~/.gitconfig` and fill it out in the following format:
 
 ```
+[alias]
+  co = checkout
+  cm = commit
+  p = push
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+```
 
-**[⬆ Back to Top](#table-of-contents)**
-### toFixed
+...or type in the command-line:
 
-Warning: Floating point numbers cannot represent all decimals precisely in binary. This can lead to unexpected results, such as 0.1 + 0.2 === 0.3 returning false .
+```bash
+$ git config --global alias.new_alias git_function
+```
 
-```javascript
+For example:
 
-123.678.toFixed()       // Returns '124'
-123.678.toFixed(1)      // Returns '123.7': Note rounding
+```bash
+$ git config --global alias.cm commit
+```
 
-2.35.toFixed(1)        // Returns '2.4'. Note it rounds up
-2.65.toFixed(1)        // Returns '2.6'. Note it rounds down -why??? see the warning above
+For an alias with multiple functions use quotes:
 
+```bash
+$ git config --global alias.ac 'add -A . && commit'
 ```
 
+Some useful aliases include:
 
-**[⬆ Back to Top](#table-of-contents)**
-### generate random uuid
+| Alias | Command | What to Type |
+| --- | --- | --- |
+| `git cm` | `git commit` | `git config --global alias.cm commit` |
+| `git co` | `git checkout` | `git config --global alias.co checkout` |
+| `git ac` | `git add . -A` `git commit` | `git config --global alias.ac '!git add -A && git commit'` |
+| `git st` | `git status -sb` | `git config --global alias.st 'status -sb'` |
+| `git tags` | `git tag -l` | `git config --global alias.tags 'tag -l'` |
+| `git branches` | `git branch -a` | `git config --global alias.branches 'branch -a'` |
+| `git cleanup` | `git branch --merged \| grep -v '*' \| xargs git branch -d` | `git config --global alias.cleanup "!git branch --merged \| grep -v '*' \| xargs git branch -d"` |
+| `git remotes` | `git remote -v` | `git config --global alias.remotes 'remote -v'` |
+| `git lg` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
 
-The randomUUID() method of the Crypto interface is used to generate a v4 UUID using a cryptographically secure random number generator.
+*Some Aliases are taken from [@mathiasbynens](https://github.com/mathiasbynens) dotfiles: https://github.com/mathiasbynens/dotfiles/blob/master/.gitconfig*
 
-```javascript
+#### Auto-Correct
+Git gives suggestions for misspelled commands and if auto-correct is enabled the command can be fixed and executed automatically. Auto-correct is enabled by specifying an integer which is the delay in tenths of a second before git will run the corrected command. Zero is the default value where no correcting will take place, and a negative value will run the corrected command with no delay.
 
-crypto.randomUUID() // print in console '460ff1e6-2106-4848-833d-5c5b3bfdc943'
+For example, if you type `git comit` you will get this:
 
-crypto.randomUUID() // print in console '9a91c014-d1b1-453a-8091-ef8b9b48b14a'
+```bash
+$ git comit -m "Message"
+# git: 'comit' is not a git command. See 'git --help'.
 
-
+# Did you mean this?
+#   commit
 ```
 
+Auto-correct can be enabled like this (with a 1.5 second delay):
+
+```bash
+$ git config --global help.autocorrect 15
+```
 
-**[⬆ Back to Top](#table-of-contents)**
-### structuredClone
+So now the command `git comit` will be auto-corrected to `git commit` like this:
 
-If you want to deep clone a value in Node.js, you no longer need to use a library or the JSON.parse(JSON.stringify(value)) hack. You can use the new global function structuredClone()
+```bash
+$ git comit -m "Message"
+# WARNING: You called a Git command named 'comit', which does not exist.
+# Continuing under the assumption that you meant 'commit'
+# in 1.5 seconds automatically...
+```
 
-```javascript
+The delay before git will rerun the command is so the user has time to abort.
 
-const user = {
-  name: "JS Snippets",
-  address: { street: "Original Road", city: "Placeshire" },
-};
+#### Color
+To add more color to your Git output:
 
-const clonedUser = structuredClone(user);
+```bash
+$ git config --global color.ui 1
+```
 
-clonedUser.address.street = "New Road";
+[*Read more about the Git `config` command.*](http://git-scm.com/docs/git-config)
 
-console.log("user.address.street:", user.address.street);
-// > Original Road
+### Git Resources
+| Title | Link |
+| ----- | ---- |
+| Official Git Site | http://git-scm.com/ |
+| Official Git Video Tutorials | http://git-scm.com/videos |
+| Code School Try Git | http://try.github.com/ |
+| Introductory Reference & Tutorial for Git | http://gitref.org/ |
+| Official Git Tutorial | http://git-scm.com/docs/gittutorial |
+| Everyday Git | http://git-scm.com/docs/everyday |
+| Git Immersion | http://gitimmersion.com/ |
+| Git God | https://github.com/gorosgobe/git-god |
+| Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
+| Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
+| Git Visualization Playground | http://onlywei.github.io/explain-git-with-d3/#freeplay |
+| Learn Git Branching | http://pcottle.github.io/learnGitBranching/ |
+| A collection of useful .gitignore templates | https://github.com/github/gitignore |
+| Unixorn's git-extra-commands collection of git scripts | https://github.com/unixorn/git-extra-commands |
 
-console.log("clonedUser.address.street:", clonedUser.address.street);
-// > New Road
+#### Git Books
+| Title | Link |
+| ----- | ---- |
+| Pragmatic Version Control Using Git | https://pragprog.com/titles/tsgit/pragmatic-version-control-using-git |
+| Pro Git | http://git-scm.com/book |
+| Git Internals PluralSight | https://github.com/pluralsight/git-internals-pdf |
+| Git in the Trenches | http://cbx33.github.io/gitt/ |
+| Version Control with Git | http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387 |
+| Pragmatic Guide to Git | https://pragprog.com/titles/pg_git/pragmatic-guide-to-git |
+| Git: Version Control for Everyone | https://www.packtpub.com/application-development/git-version-control-everyone |
 
+#### Git Videos
+| Title | Link |
+| ----- | ---- |
+| Linus Torvalds on Git | https://www.youtube.com/watch?v=4XpnKHJAok8 |
+| Introduction to Git with Scott Chacon | https://www.youtube.com/watch?v=ZDR433b0HJY |
+| Git From the Bits Up | https://www.youtube.com/watch?v=MYP56QJpDr4 |
+| Graphs, Hashes, and Compression, Oh My! | https://www.youtube.com/watch?v=ig5E8CcdM9g |
+| GitHub Training & Guides | https://www.youtube.com/watch?list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&v=FyfwLX4HAxM |
 
-```
+#### Git Articles
+| Title | Link |
+| ----- | ---- |
+| GitHub Flow  | http://scottchacon.com/2011/08/31/github-flow.html |
+| Migrating to Git Large File Storate (Git LFS) | http://vooban.com/en/tips-articles-geek-stuff/migrating-to-git-lfs-for-developing-deep-learning-applications-with-large-files/ |
