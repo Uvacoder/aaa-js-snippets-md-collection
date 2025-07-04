@@ -5,7 +5,8 @@
 <p align="center">
   A continuously-evolving compendium of javascript tips based on common areas of confusion or misunderstanding.
 </p>
-
+# JavaScript-snippets
+<img src="Logo.png" alt="JS snippets logo">
 ---
 
 **Want to learn more about JavaScript development? Consider:** 
