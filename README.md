@@ -9,9 +9,6 @@
 <img src="Logo.png" alt="JS snippets logo">
 ---
 
-**Want to learn more about JavaScript development? Consider:** 
-- Signing up for my [free newsletter](https://buttondown.email/devtuts) where I periodically send out digestible bits of JavaScript knowledge!
-- Subscribing to my [free youtube channel](https://www.youtube.com/c/devtutsco) where I teach JavaScript, Typescript, and React tutorials!
 
 ---
 
@@ -34,6 +31,61 @@
 -   [Interview Questions](#interview-questions)
 -   [Miscellaneous](#miscellaneous)
 -   [How to generate a random number in a given range](#How-to-generate-a-random-number-in-a-given-range)
+
+# JavaScript-snippets
+> Click :star:  if you like the project. Pull Request are highly appreciated. Follow us on [Facebook](https://www.facebook.com/snippetsJS)
+
+### Table of Contents
+| No. | Questions |
+|---- | ---------
+|1  | [Generate a random number in a given range](#How-to-generate-a-random-number-in-a-given-range) |
+|2  | [Find the difference between two arrays](#How-to-find-the-difference-between-two-arrays)|
+|3  | [Convert truthy/falsy to boolean(true/false)](#Convert-truthy-falsy-to-boolean)|
+|4  | [Repeat a string](#Repeat-a-string)|
+|5  | [Check how long an operation takes](#Check-how-long-an-operation-takes)|
+|6  | [Two ways to remove an item in a specific in an array](#Two-ways-to-remove-an-item-in-a-specific-in-an-array)|
+|7  | [Did you know you can flat an array?](#Did-you-know-you-can-flat-an-array)|
+|8  | [Get unique values in an array](#Get-unique-values-in-an-array)|
+|9  | [Copy Text to Clipboard](#Copy-Text-to-Clipboard)|
+|10 | [Nested Destructuring](#Nested-Destructuring)|
+|11 | [URLSearchParams](#URLSearchParams)|
+|12 | [Count elements in an array](#Count-elements-in-an-array)|
+|13 | [Aliases with JavaScript Destructuring](#Aliases-with-JavaScript-Destructuring)|
+|14 | [The Object.is() method determines whether two values are the same value](#the-objectis-method-determines-whether-two-values-are-the-same-value)|
+|15 | [Freeze an object](#Freeze-an-object)|
+|16 | [Printing Object keys and values](#Printing-Object-keys-and-values)|
+|17 | [Capture the right click event](#Capture-the-right-click-event)|
+|18 | [In HTML5, you can tell the browser when to run your JavaScript code](#in-html5-you-can-tell-the-browser-when-to-run-your-javascript-code)|
+|19 | [Nullish coalescing operator](#Nullish-coalescing-operator)|
+|20 | [Optional chaining](#Optional-chaining)|
+|21 | [globalThis](#globalThis)|
+|22 | [The second argument of JSON.stringify lets you cherry-pick 🍒 keys to serialize.](#the-second-argument-of-jsonstringify-lets-you-cherry-pick--keys-to-serialize)|
+|23 | [Fire an event listener only once.](#Fire-an-event-listener-only-once)|
+|24 | [Vanilla JS toggle](#Vanilla-JS-toggle)|
+|25 | [Check if a string is a valid JSON](#Check-if-a-string-is-a-valid-JSON)|
+|26 | [getBoundingClientRect](#getBoundingClientRect)|
+|27 | [Check if a node is in the viewport](#Check-if-a-node-is-in-the-viewport)|
+|28 | [Notify when element size is changed](#Notify-when-element-size-is-changed)|
+|29 | [Detect if Browser Tab is in the view](#Detect-if-Browser-Tab-is-in-the-view)|
+|30 | [Private class methods and fields](#Private-class-methods-and-fields)|
+|31 | [Preventing paste into an input field](#Preventing-paste-into-an-input-field)|
+|32 | [The void operator](#The-void-operator)|
+|33 | [replaceAll](#replaceAll)|
+|34 | [Required Function Params](#Required-Function-Params)|
+|35 | [Get input value as a number](#Get-input-value-as-a-number)|
+|36 | [reduceRight](#reduceRight)|
+|37 | [Abort Fetch](#Abort-Fetch)|
+|38 | [How to change the value of an object which is inside an array](#How-to-change-the-value-of-an-object-which-is-inside-an-array)|
+|39 | [Numeric separators allow us to improve our code readability](#Numeric-separators-allow-us-to-improve-our-code-readability)|
+|40 | [pay attention when using every](#pay-attention-when-using-every)|
+|41 | [How to convert an array of key-value tuples into an object](#How-to-convert-an-array-of-key-value-tuples-into-an-object)|
+|42 | [Native text to speech JS](#Native-text-to-speech-JS)|
+|43 | [toFixed](#toFixed)|
+|44 | [generate randomUUID](#generate-random-uuid)|
+|45 | [structuredClone](#structuredClone)|
+
+
+
 
 ## Value vs. Reference Variable Assignment
 
