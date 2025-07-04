@@ -684,8 +684,9 @@ let i = 0;
 console.log(++i);
 // 1
 ```
-# How to generate a random number in a given range
 
+**[⬆ Back to Top](#table-of-contents)**
+### How to generate a random number in a given range
 ```javascript
 // Returns a random number(float) between min (inclusive) and max (exclusive) 
 
@@ -704,8 +705,8 @@ const getRandomNumberInclusive =(min, max)=> {
 getRandomNumberInclusive(2, 10);
 ```
 
-# How to find the difference between two arrays.
-
+**[⬆ Back to Top](#table-of-contents)**
+### How to find the difference between two arrays
 
 ```javascript
 const firstArr = [5, 2, 1];
@@ -744,7 +745,9 @@ difference(firstArr, secondArr); //[3,4]
 console.log('difference',difference(firstArr, secondArr))
 ```
 
-# How to convert truthy/falsy to boolean(true/false)
+**[⬆ Back to Top](#table-of-contents)**
+### Convert truthy falsy to boolean
+
 ```javascript
 const myVar = null; 
 const mySecondVar = 1; 
@@ -756,8 +759,8 @@ console.log( !!myVar ) // false
 console.log( Boolean(mySecondVar) ) // true
 console.log( !!mySecondVar ) // true
 ```
-
-# How to repeat a string
+**[⬆ Back to Top](#table-of-contents)**
+### Repeat a string
 ```javascript
 
 let aliens = '';
@@ -775,7 +778,8 @@ Array(6).join('👽')
 //👽👽👽👽👽👽
 
 ```
-# Check how long an operation takes
+**[⬆ Back to Top](#table-of-contents)**
+### Check how long an operation takes
 ```javascript
 //The performance.now() method returns a DOMHighResTimeStamp, measured in milliseconds.
 //performance.now() is relative to page load and more precise in orders of magnitude. 
@@ -788,7 +792,8 @@ const endTime = performance.now();
 console.log("this doSomething took " + (endTime - startTime) + " milliseconds.");
 ```
 
-# Two ways to remove an item in a specific in an array
+**[⬆ Back to Top](#table-of-contents)**
+### Two ways to remove an item in a specific in an array
 
 ```javascript
 //Mutating way
@@ -798,11 +803,12 @@ console.log(muatatedArray) //['a','b','d','e']
 
 //Non-mutating way
 const nonMuatatedArray = ['a','b','c','d','e'];
-const newArray = nonMuatatedArray.filter((item'index) => !( index === 2 ));
+const newArray = nonMuatatedArray.filter((item, index) => !( index === 2 ));
 console.log(newArray) //['a','b','d','e']
 ```
 
-# Did you know you can flat an array?
+**[⬆ Back to Top](#table-of-contents)**
+### Did you know you can flat an array
 
 ```javascript
 const myArray = [2, 3, [4, 5],[7,7, [8, 9, [1, 1]]]];
@@ -818,7 +824,8 @@ myArray.flat(infinity) // [2, 3, 4, 5 ,7,7, 8, 9, 1, 1];
 
 ```
 
-# Get unique values in an array
+**[⬆ Back to Top](#table-of-contents)**
+### Get unique values in an array
 
 ```javascript
 const numbers = [1,1,3,2,5,3,4,7,7,7,8];
@@ -840,7 +847,9 @@ const unieqNumbers4 = _.uniq(numbers)
 console.log(unieqNumbers4) //[1,3,2,5,4,7,8]
 
 ```
-# Copy Text to Clipboard
+
+**[⬆ Back to Top](#table-of-contents)**
+### Copy Text to Clipboard
 
 
 ```javascript
@@ -858,7 +867,8 @@ function copyToClipboard(){
 
 ```
 
-#  Nested Destructuring
+**[⬆ Back to Top](#table-of-contents)**
+###  Nested Destructuring
 
 
 ```javascript
@@ -875,7 +885,8 @@ const { education : { degree } } = user;
 console.log(degree) //Masters
 ```
 
-#  URLSearchParams 
+**[⬆ Back to Top](#table-of-contents)**
+###  URLSearchParams 
 
 
 ```javascript
@@ -890,22 +901,8 @@ console.log(urlParams.toString()); // "?post=1234&action=edit"
 console.log(urlParams.append('active', '1')); // "?post=1234&action=edit&active=1"
 ```
 
-
-#  Shuffle an array 
-
-
-```javascript
-const list = [1,2,3,4,5,6,7,8,9];
-const shuffle = list.sort(func);
-
-function func(a,b){
-  return 0.5 - Math.random();
-}
-
-console.log(shuffle);
-```
-
-#  Count elements in an array
+**[⬆ Back to Top](#table-of-contents)**
+###  Count elements in an array
 
 
 ```javascript
@@ -930,8 +927,8 @@ const countMyFruits = myFruits.reduce((countFruits,fruit) => {
  // { Apple:3, Banana:1, Mango:2, Orange:1 }
 ```
 
-
-#  Aliases with JavaScript Destructuring
+**[⬆ Back to Top](#table-of-contents)**
+###  Aliases with JavaScript Destructuring
 
 
 ```javascript
@@ -951,8 +948,8 @@ console.log(pageName) // JSsnippets
 ```
 
 
-
-#  The Object.is() method determines whether two values are the same value
+**[⬆ Back to Top](#table-of-contents)**
+###  The Object.is() method determines whether two values are the same value
 
 
 ```javascript
@@ -970,8 +967,8 @@ Object.is(foo, bar);         // false
 ```
 
 
-
-#  How can we freeze an object
+**[⬆ Back to Top](#table-of-contents)**
+###  Freeze an object
 
 
 ```javascript
@@ -1000,8 +997,8 @@ Object.isFrozen(obj) //true
 
 ```
 
-
-#  Printing Object keys and values
+**[⬆ Back to Top](#table-of-contents)**
+###  Printing Object keys and values
 
 
 ```javascript
@@ -1023,7 +1020,9 @@ for(let [key,value] of Object.entries(obj)){
 // order is not guaranteed
 
 ```
-#  Capture the right click event
+
+**[⬆ Back to Top](#table-of-contents)**
+###  Capture the right click event
 
 ```javascript
 window.oncontextmenu = () => {
@@ -1038,8 +1037,8 @@ window.addEventListener('contextmenu', ()=>{
 },false)
 ```
 
-
-#  In HTML5, you can tell the browser when to run your JavaScript code
+**[⬆ Back to Top](#table-of-contents)**
+###  In HTML5, you can tell the browser when to run your JavaScript code
 ```javascript
 
 //Without async or defer, browser will run your script immediately, before rendering the elements that's below your script tag.
@@ -1053,7 +1052,8 @@ window.addEventListener('contextmenu', ()=>{
 <script defer src="myscript.js"></script>
 ```
 
-#   nullish coalescing operator
+**[⬆ Back to Top](#table-of-contents)**
+###   Nullish coalescing operator
 ```javascript
 
 // an equality check against nullary values (e.g. null or undefined). Whenever the expression to the left of the ?? operator evaluates to either //undefined or null, the value defined to the right will be returned.
@@ -1068,7 +1068,8 @@ console.log(age);
 // expected output: "0"
 ```
 
-#  Optional chaining
+**[⬆ Back to Top](#table-of-contents)**
+###  Optional chaining
 ```javascript
 
 const car = {}
@@ -1091,7 +1092,8 @@ console.log(newCarColor)
 //You can use this syntax today using @babel/plugin-proposal-optional-chaining
 ```
 
-#  globalThis
+**[⬆ Back to Top](#table-of-contents)**
+###  globalThis
 ```javascript
 Accessing the global property in JavaScript has always posed some difficulty. This is because 
 different platforms have different ways to access it.
@@ -1109,7 +1111,7 @@ console.log(globalThis) //get the global this depends on your environment
 ```
 
 
-
+**[⬆ Back to Top](#table-of-contents)**
 #  The second argument of JSON.stringify lets you cherry-pick 🍒 keys to serialize.
 ```javascript
 const user = {
@@ -1136,8 +1138,8 @@ returns
 
 ```
 
-
-#  Fire an event listener only once.
+**[⬆ Back to Top](#table-of-contents)**
+###  Fire an event listener only once
 ```javascript
 const el = document.getElementById("btn");
 
@@ -1151,10 +1153,463 @@ el.addEventListener('click', myClickHandler, {
 });
 
 ```
+**[⬆ Back to Top](#table-of-contents)**
+###  Vanilla JS toggle
+```javascript
+const span = document.querySelector("span");
+let classes = span.classList;
+
+span.addEventListener("click", function() {
+  let result = classes.toggle("active");
+
+  if (result) {
+    console.log("active class was added");
+  } else {
+    console.log("active class was removed");
+  }
+});
+
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### Check if a string is a valid JSON
+
+```javascript
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+      //the json is  not ok
+        return false;
+    }
+    //the json is ok
+    return true;									
+}
+```
+**[⬆ Back to Top](#table-of-contents)**
+### getBoundingClientRect
+
+```javascript
+//getBoundingClientRect provides you with important pieces of data about an
+//HTML element’s size and positioning.
+
+const bodyBounderies = document.body.getBoundingClientRect();
+// =>  {
+//       top: Number,
+//       left: Number,
+//       right: Number,
+//       bottom: Number,
+//       x: Number,
+//       y: Number,
+//       width: Number,
+//       height: Number,
+//     }
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### Check if a node is in the viewport
+bonus: add/remove animation depending if an image is in the viewport
+https://codepen.io/JSsnippets/pen/PoqrjEY
+```javascript
+const image = document.querySelector('.animate-me');
+
+observer = new IntersectionObserver((entries) => {
+  const [ myImg ] = entries;
+    if (myImg.intersectionRatio > 0) {
+      myImg.target.classList.add('fancy');
+    } else {
+      myImg.target.classList.remove('fancy');
+    }
+});
+
+
+observer.observe(image);
+
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### Notify when element size is changed 
+see our codepen: https://codepen.io/JSsnippets/pen/dyYoYVX
+```javascript
+const foo = document.getElementById("foo");
+
+const observer = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    const cr = entry.contentRect;
+    console.log = `Size: ${cr.width}px X ${cr.height}px`;
+  }
+});
+observer.observe(foo);
+
+```
+**[⬆ Back to Top](#table-of-contents)**
+### Detect if Browser Tab is in the view
+play/pause video accordingly
+see our codepen: https://codepen.io/JSsnippets/pen/gOapPzq
+```javascript
+
+
+const video =  document.getElementById("my-video");
+
+const onVisibilitychange =()=>{
+   return document.hidden 
+     ? video.pause() 
+     : video.play();
+} 
+
+document.addEventListener("visibilitychange", onVisibilitychange)
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### Private class methods and fields
+```javascript
+
+class Students {
+  #name;
+
+  constructor(){
+    this.#name = "JS snippets";
+  }
+
+  #privateMethod() {
+    return 'Come and learn Js with us';
+  }
+
+  getPrivateMessage() {
+      return this.#privateMethod();
+  }
+}
+
+const instance = new Something();
+console.log(instance.name); //=> undefined
+console.log(instance.privateMethod); //=> undefined
+console.log(instance.getPrivateMessage()); //=> Come and learn Js with us
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### Preventing paste into an input field
+see our codepen: https://codepen.io/JSsnippets/pen/qBbyMoJ
+
+```javascript
+
+const pasteBox = document.getElementById("paste-no-event");
+pasteBox.onpaste = (e) => {
+  e.preventDefault();
+  return false;
+};
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### The void operator 
+The void operator evaluates the given expression and then returns undefined.
+```javascript
+
+
+void 0;  		//returns undefined
+void (0); 		//returns undefined
+void {}; 		//returns undefined
+void "JSsnippets; 	//returns undefined
+void (0); 		//returns undefined
+void (2 == '2'); 	//returns undefined
+void anyfunction(); 	//returns undefined
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### replaceAll 
+the method string.replaceAll(search, replaceWith) replaces all appearances of search string with replaceWith.
+```javascript
+
+
+const str = 'this is a JSsnippets example';
+
+const updatedStr = str.replace('example', 'snippet'); // 'this is a  JSsnippets snippet'
+
+
+The tricky part is that replace method replaces only the very first match of the substring we have passed:
+
+
+const str = 'this is a JSsnippets example and examples are great';
+
+const updatedStr = str.replace('example', 'snippet'); //'this is a JSsnippets snippet and examples are great'
+
+In order to go through this, we need to use a global regexp instead:
+
+
+const str = 'this is a JSsnippets example and examples are great';
+
+const updatedStr = str.replace(/example/g, 'snippet'); //'this is a JSsnippets snippet and snippets are greatr'
+
+but now we have new friend in town, replaceAll
+
+const str = 'this is a JSsnippets example and examples are great';
+
+const updatedStr = str.replaceAll('example', 'snippet'); //'this is a JSsnippets snippet and snippets are greatr'
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### Required Function Params 
+Expanding on the default parameter technique, we can mark a parameter as mandatory
+
+```javascript
+const isRequired = () => {
+    throw new Error( 'This is a mandatory parameter.' );
+}
+
+
+const getPage = ( pageName = 'Jssnippets', url = isRequired() ) => {
+    return `${pageName} ${url}`;
+}
+
+console.log(getPage());
+
+//In the above code, url will be undefined and that will try to set the default value for it which is the isRequired() function. It will throw an error as,
+
+//Uncaught error: This is a mandatory parameter.
+//at isRequired
+
+```
 
 
 
 
-# Contributing
+**[⬆ Back to Top](#table-of-contents)**
+### Get input value as a number
 
-Contributions welcome! All I ask is that you open an issue and we discuss your proposed changes before you create a pull request.
+```javascript
+
+<input type="number" id="JSsnippets" onkeyup="checkMyType(event)" />
+
+function checkMyType(event){
+  
+  console.log(typeof event.target.value) // string
+  console.log(typeof event.target.valueAsNumber ) // number
+
+}
+
+
+```
+**[⬆ Back to Top](#table-of-contents)**
+### reduceRight
+
+```javascript
+
+const arr = ["a", "b", "c", "d", "e"]
+
+const reduceArray = arr.reduce((acc, current) => {
+    return acc + current
+}, "")
+//return abcde
+
+const reduceRightArray = arr.reduceRight((acc, current) => {
+    return acc + current
+}, "")
+//return edcba
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### Abort Fetch
+
+```javascript
+
+
+//HTML
+<button id="download">Download</button>
+<button id="abort">Abort</button>
+
+//JS
+let controller;
+
+document.querySelector('#download').addEventListener('click', () => {
+  controller = new AbortController();
+  const signal = controller.signal;
+  fetch('https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4', {signal})
+    .then(() => console.log('done'));
+});
+
+document.querySelector('#abort').addEventListener('click', function() {
+  controller.abort();
+});
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### How to change the value of an object which is inside an array
+
+```javascript
+
+const state = [
+  {
+    userId: 1,
+    name: "JSSnippets",
+    isOwner: false,
+  },
+  {
+    userId: 2,
+    name: "React",
+    isOwner: false,
+  },
+  {
+    userId: 3,
+    name: "Vue",
+    isOwner: false,
+  },
+  {
+    userId: 4,
+    name: "Angular",
+    isOwner: false,
+  },
+];
+
+const newState = state.map((obj) =>
+  obj.name === "JSSnippets" ? { ...obj, isOwner: true } : obj			
+);
+
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### Numeric separators allow us to improve our code readability
+
+```javascript
+
+100_000_000 === 100000000 // true
+
+300_000 === 300000 //true
+
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### pay attention when using every
+
+Calling this method on an empty array will return true for any condition!
+
+
+```javascript
+
+const arr = []
+const result = arr.every(x=> x==5)
+console.log(result) //true
+
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### How to convert an array of key-value tuples into an object
+
+
+```javascript
+
+const JSarr = [
+    ['name', 'JSsnippets'],
+    ['address', 'worldwide'],
+    ['year', '2018'],
+    ['followers', '15000']
+
+];
+
+const obj = Object.fromEntries(JSarr);
+//{
+//  "name": "JSsnippets",
+// "address": "worldwide",
+//  "year": "2018",
+//  "followers": "15000"
+//}
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### Native text to speech JS
+
+
+```javascript
+
+const startSpeaking=()=>{
+
+	let msg = document.getElementById("text-to-speech").value;
+	let speech = new SpeechSynthesisUtterance();
+	
+	speech.lang = "en-US";
+	speech.text = msg;
+	speech.volume = 1;
+	speech.rate = 1;
+	speech.pitch = 1;
+
+	window.speechSynthesis.speak(speech);
+}
+
+
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### toFixed
+
+Warning: Floating point numbers cannot represent all decimals precisely in binary. This can lead to unexpected results, such as 0.1 + 0.2 === 0.3 returning false .
+
+```javascript
+
+123.678.toFixed()       // Returns '124'
+123.678.toFixed(1)      // Returns '123.7': Note rounding
+
+2.35.toFixed(1)        // Returns '2.4'. Note it rounds up
+2.65.toFixed(1)        // Returns '2.6'. Note it rounds down -why??? see the warning above
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### generate random uuid
+
+The randomUUID() method of the Crypto interface is used to generate a v4 UUID using a cryptographically secure random number generator.
+
+```javascript
+
+crypto.randomUUID() // print in console '460ff1e6-2106-4848-833d-5c5b3bfdc943'
+
+crypto.randomUUID() // print in console '9a91c014-d1b1-453a-8091-ef8b9b48b14a'
+
+
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+### structuredClone
+
+If you want to deep clone a value in Node.js, you no longer need to use a library or the JSON.parse(JSON.stringify(value)) hack. You can use the new global function structuredClone()
+
+```javascript
+
+const user = {
+  name: "JS Snippets",
+  address: { street: "Original Road", city: "Placeshire" },
+};
+
+const clonedUser = structuredClone(user);
+
+clonedUser.address.street = "New Road";
+
+console.log("user.address.street:", user.address.street);
+// > Original Road
+
+console.log("clonedUser.address.street:", clonedUser.address.street);
+// > New Road
+
+
+```
